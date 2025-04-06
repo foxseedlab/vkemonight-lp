@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo';
+import SplashScreen from '../components/SplashScreen.astro';
 
 const {
   title = 'バーチャルケモナイト',
@@ -36,6 +37,7 @@ const {
 	</head>
 
 	<body>
+    <SplashScreen />
 		<slot />
 	</body>
 </html>
