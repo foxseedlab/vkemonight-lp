@@ -21,6 +21,6 @@ npm install
 
 <div align="center">
 <small>
-© 2025 KEMO IN THE DARK
+© 2025 KEMO IN THE DARK, ふぉくしーど
 </small>
 </div>
