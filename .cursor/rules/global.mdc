@@ -18,6 +18,6 @@ alwaysApply: true
 ■ 実装時の注意点
 - 書籍「リーダブルコード」のようなベストプラクティスを常に適用してください。
 - コードの意図・背景などのコメントを各行に積極的に入れてください。
-- コーディングルールは [biome.jsonc](mdc:biome.jsonc) を参照してください。
+- コーディングルールは [biome.jsonc](mdc:biome.jsonc) [tsconfig.json](mdc:tsconfig.json) を参照してください。
 - セキュリティは最も重要な要素です。
 - 軽量なLPを実現するため、CSSで実装できるアニメーションはCSSで実装してください。
