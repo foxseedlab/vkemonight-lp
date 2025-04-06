@@ -1,0 +1,41 @@
+---
+import { SEO } from 'astro-seo';
+
+const {
+  title = 'バーチャルケモナイト',
+  description = 'バーチャルからお送りする夜のDJフェス',
+  xSite = '@KEMO_INTHE_DARK',
+  noindex = true,
+  nofollow = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+    <SEO
+      title={title}
+      description={description}
+      twitter={{
+        site: xSite,
+        title,
+        description,
+      }}
+      noindex={noindex}
+      nofollow={nofollow}
+      charset="UTF-8"
+      extend={{
+        link: [
+          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        ],
+        meta: [
+          { name: "viewport", content: "width=device-width, initial-scale=1" },
+        ],
+      }}
+    />
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>
