@@ -1,0 +1,61 @@
+<div class="splash-screen fixed inset-0 z-50 flex items-center justify-center bg-neutral-900">
+  <div class="relative flex flex-col items-center justify-center">
+    <svg
+      class="h-72 w-72"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        class="progress-circle"
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="white"
+        stroke-width="1"
+        transform="rotate(-90 50 50)"
+      />
+    </svg>
+    <span class="absolute m-auto font-display text-lg text-white">
+      now loading
+    </span>
+  </div>
+</div>
+
+<style>
+  @keyframes circleProgress {
+    0% {
+      stroke-dashoffset: 283; /* 円周の長さ */
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .splash-screen {
+    animation: fadeOut 1s ease-in-out forwards;
+  }
+
+  .progress-circle {
+    stroke-dasharray: 283; /* 円周の長さ (2 * π * 半径) */
+    animation: circleProgress 0.75s linear;
+  }
+</style>
+
+<script>
+  setTimeout(() => {
+    const splash = document.querySelector('.splash-screen');
+    splash?.remove();
+  }, 1500);
+</script>
