@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/Base.astro';
 
-import Sample from '@/components/Sample';
+import Hero from '@/components/Hero';
 import Welcome from '@/components/Welcome.astro';
 
 import '@fontsource/ibm-plex-sans-jp';
@@ -10,6 +10,6 @@ import '@/styles/global.css';
 ---
 
 <BaseLayout>
-	<Welcome />
-  <Sample />
+  <Hero client:only />
+	<!-- <Welcome /> -->
 </BaseLayout>

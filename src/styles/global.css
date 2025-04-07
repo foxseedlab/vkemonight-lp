@@ -8,7 +8,9 @@
 html,
 body {
   position: relative;
+  width: 100svw;
   min-height: 100svh;
+  overflow-x: hidden;
 }
 
 html::after,
