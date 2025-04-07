@@ -5,14 +5,26 @@ export default function Hero() {
 
   return (
     <section
-      className="mask-contain mask-repeat-x"
+      className="w-full h-[calc(100svh+200px)] text-white text-center mask-contain mask-repeat-x flex flex-col items-center relative"
       style={{
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
     >
-      <div className="h-[calc(100svh+200px)] w-screen">
-        <div className="w-full h-full bg-gray-900" />
+      <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute">
+        <h1 className="w-3/4 md:w-2/3 xl:w-1/2">
+          <img
+            src="/logo.webp"
+            alt="バーチャルケモナイト ロゴ"
+            className="w-full select-none pointer-events-none"
+            draggable="false"
+          />
+        </h1>
+        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl xl:text-3xl font-semibold tracking-widest">
+          バーチャルからお送りする夜のDJフェス | VRChat
+        </div>
       </div>
+
+      <div className="w-full h-full bg-gray-900" />
     </section>
   );
 }

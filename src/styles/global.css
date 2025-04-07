@@ -7,10 +7,7 @@
 
 html,
 body {
-  position: relative;
-  width: 100svw;
-  min-height: 100svh;
-  overflow-x: hidden;
+  @apply w-[100svw] h-[100svh] text-sm overflow-x-hidden relative;
 }
 
 html::after,
