@@ -5,17 +5,13 @@ export default function Hero() {
 
   return (
     <section
-      className="mask-no-repeat mask-contain"
+      className="mask-contain mask-repeat-x"
       style={{
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
     >
       <div className="h-[calc(100svh+200px)] w-screen">
-        <img
-          src="concrete.webp"
-          className="w-full h-full object-cover"
-          alt="コンクリートテクスチャ"
-        />
+        <div className="w-full h-full bg-gray-900" />
       </div>
     </section>
   );
