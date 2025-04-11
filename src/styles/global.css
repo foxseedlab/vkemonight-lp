@@ -5,6 +5,7 @@
   --font-display: "Major Mono Display", "IBM Plex Sans JP", sans-serif;
   --color-primary: rgb(255, 255, 255);
   --color-secondary: rgb(61, 61, 61);
+  --color-tertiary: rgb(43, 62, 110);
   --color-header1: rgb(180, 180, 180);
   --color-primary-button: rgb(169, 136, 39);
   --color-secondary-background: rgb(184, 193, 197);
@@ -48,4 +49,44 @@ body::before {
       hsl(248, 8%, 5%) 100%
     );
   z-index: -1;
+}
+
+.outlined-text-shadow-2xs {
+  text-shadow: -0.25px -0.25px 0 var(--tw-text-shadow-color), 0.25px -0.25px 0
+    var(--tw-text-shadow-color), -0.25px 0.25px 0 var(--tw-text-shadow-color),
+    0.25px 0.25px 0 var(--tw-text-shadow-color);
+}
+
+.outlined-text-shadow-1dot5xs {
+  text-shadow: -0.30px -0.30px 0 var(--tw-text-shadow-color), 0.30px -0.30px 0
+    var(--tw-text-shadow-color), -0.30px 0.30px 0 var(--tw-text-shadow-color),
+    0.30px 0.30px 0 var(--tw-text-shadow-color);
+}
+
+.outlined-text-shadow-xs {
+  text-shadow: -0.35px -0.35px 0 var(--tw-text-shadow-color), 0.35px -0.35px 0
+    var(--tw-text-shadow-color), -0.35px 0.35px 0 var(--tw-text-shadow-color),
+    0.35px 0.35px 0 var(--tw-text-shadow-color);
+}
+
+.outlined-text-shadow-sm {
+  text-shadow: -0.5px -0.5px 0 var(--tw-text-shadow-color), 0.5px -0.5px 0
+    var(--tw-text-shadow-color), -0.5px 0.5px 0 var(--tw-text-shadow-color),
+    0.5px 0.5px 0 var(--tw-text-shadow-color);
+}
+
+.outlined-text-shadow-md {
+  text-shadow: -1px -1px 0 var(--tw-text-shadow-color), 1px -1px 0
+    var(--tw-text-shadow-color), -1px 1px 0 var(--tw-text-shadow-color), 1px 1px
+    0 var(--tw-text-shadow-color);
+}
+
+.outlined-text-shadow-lg {
+  text-shadow:
+    -2px -2px 0 var(--tw-text-shadow-color), 2px -2px 0 var(
+      --tw-text-shadow-color
+    ), -2px 2px 0 var(--tw-text-shadow-color), 2px 2px 0
+    var(--tw-text-shadow-color), 0 -2px 0 var(--tw-text-shadow-color), 0 2px 0 var(
+      --tw-text-shadow-color
+    ), -2px 0 0 var(--tw-text-shadow-color), 2px 0 0 var(--tw-text-shadow-color);
 }
