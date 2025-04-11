@@ -10,7 +10,7 @@ export default function Header1({
   title, titleJa, right = false, small = false, className = ''
 }: Props) {
   const displayFontSize = small
-    ? 'text-4xl md:text-[6rem] xl:text-[8rem]'
+    ? 'text-[3.6rem] md:text-[8rem] xl:text-[10rem]'
     : 'text-8xl md:text-[12rem] xl:text-[14rem]';
 
   return (
@@ -18,15 +18,15 @@ export default function Header1({
       <div className={
         right
           ? `mr-6 md:mr-12 xl:mr-16 ${displayFontSize}
-            text-right font-display text-header1 tracking-tighter`
+            text-right font-display text-header1 tracking-tighter leading-none`
           : `ml-6 md:ml-12 xl:ml-16 ${displayFontSize}
-            font-display text-header1 tracking-tighter`
+            font-display text-header1 tracking-tighter leading-none`
       } dangerouslySetInnerHTML={{ __html: title }} />
 
       <div className={
         right
-          ? 'mt-8 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
-          : 'mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
+          ? 'mt-4 md:mt-8 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
+          : 'mt-4 md:mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
       }>
         <div className={
           right
