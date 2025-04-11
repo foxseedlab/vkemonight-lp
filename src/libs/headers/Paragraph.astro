@@ -1,0 +1,11 @@
+---
+type Props = {
+  className?: string;
+}
+
+const { className = '' }: Props = Astro.props;
+---
+
+<p class={`tracking-wide leading-10 ${className}`}>
+  <slot />
+</p>
