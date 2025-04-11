@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "IBM Plex Sans JP", sans-serif;
   --font-display: "Major Mono Display", "IBM Plex Sans JP", sans-serif;
+  --color-header1: rgb(180, 180, 180);
 }
 
 html,

@@ -2,12 +2,16 @@
 import BaseLayout from '@/layouts/Base.astro';
 
 import Hero from '@/components/Hero';
+import About from '@/components/About.astro';
 
-import '@fontsource/ibm-plex-sans-jp';
+import '@fontsource/ibm-plex-sans-jp/400.css';
+import '@fontsource/ibm-plex-sans-jp/500.css';
+import '@fontsource/ibm-plex-sans-jp/700.css';
 import '@fontsource/major-mono-display';
 import '@/styles/global.css';
 ---
 
 <BaseLayout>
   <Hero client:only />
+  <About />
 </BaseLayout>

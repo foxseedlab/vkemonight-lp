@@ -19,7 +19,7 @@ export default function Hero() {
             draggable="false"
           />
         </h1>
-        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl xl:text-3xl font-semibold tracking-widest">
+        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl font-bold tracking-widest">
           バーチャルからお送りする夜のDJフェス | VRChat
         </div>
       </div>
