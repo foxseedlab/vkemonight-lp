@@ -2,11 +2,12 @@ type Props = {
   title: string;
   titleJa: string;
   isRight?: boolean;
+  className?: string;
 }
 
-export default function Header1({ title, titleJa, isRight = false }: Props) {
+export default function Header1({ title, titleJa, isRight = false, className = '' }: Props) {
   return (
-    <h1 className="pt-18 w-full mix-blend-color-dodge relative">
+    <h1 className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}>
       <div className={
         isRight
           ? 'mr-16 text-[14rem] text-right font-display text-header1 tracking-tighter'
