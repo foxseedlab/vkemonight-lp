@@ -4,8 +4,10 @@
   --font-sans: "IBM Plex Sans JP", sans-serif;
   --font-display: "Major Mono Display", "IBM Plex Sans JP", sans-serif;
   --color-primary: rgb(255, 255, 255);
+  --color-secondary: rgb(61, 61, 61);
   --color-header1: rgb(180, 180, 180);
   --color-primary-button: rgb(169, 136, 39);
+  --color-secondary-background: rgb(184, 193, 197);
 }
 
 html,
