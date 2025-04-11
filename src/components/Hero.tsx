@@ -5,7 +5,7 @@ export default function Hero() {
 
   return (
     <section
-      className="w-full h-[calc(100svh+200px)] text-white text-center mask-contain mask-repeat-x flex flex-col items-center relative"
+      className="w-full h-[calc(100svh+200px)] text-center mask-contain mask-repeat-x flex flex-col items-center relative"
       style={{
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
@@ -19,7 +19,7 @@ export default function Hero() {
             draggable="false"
           />
         </h1>
-        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl xl:text-3xl font-semibold tracking-widest">
+        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl font-bold tracking-widest">
           バーチャルからお送りする夜のDJフェス | VRChat
         </div>
       </div>

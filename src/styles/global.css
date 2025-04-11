@@ -3,11 +3,14 @@
 @theme {
   --font-sans: "IBM Plex Sans JP", sans-serif;
   --font-display: "Major Mono Display", "IBM Plex Sans JP", sans-serif;
+  --color-primary: rgb(255, 255, 255);
+  --color-header1: rgb(180, 180, 180);
+  --color-primary-button: rgb(169, 136, 39);
 }
 
 html,
 body {
-  @apply w-[100svw] h-[100svh] text-sm overflow-x-hidden relative;
+  @apply w-[100svw] h-[100svh] text-sm text-primary overflow-x-hidden relative;
 }
 
 html::after,
