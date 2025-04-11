@@ -5,7 +5,7 @@ export default function Hero() {
 
   return (
     <section
-      className="w-full h-[calc(100svh+200px)] text-white text-center mask-contain mask-repeat-x flex flex-col items-center relative"
+      className="w-full h-[calc(100svh+200px)] text-center mask-contain mask-repeat-x flex flex-col items-center relative"
       style={{
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
