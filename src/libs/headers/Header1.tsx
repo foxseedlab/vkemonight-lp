@@ -6,7 +6,7 @@ type Props = {
 
 export default function Header1({ title, titleJa, isRight = false }: Props) {
   return (
-    <h1 className="pt-2 w-full mix-blend-color-dodge relative">
+    <h1 className="pt-18 w-full mix-blend-color-dodge relative">
       <div className="ml-16 text-[14rem] font-display text-header1 tracking-tighter">
         {title}
       </div>
@@ -26,7 +26,7 @@ export default function Header1({ title, titleJa, isRight = false }: Props) {
         </div>
       </div>
 
-      <div className="w-48 h-48 text-header1 absolute bottom-36 -right-4">
+      <div className="w-64 h-64 text-header1 absolute bottom-36 -right-4">
         <DotPattern />
       </div>
     </h1>
@@ -35,14 +35,14 @@ export default function Header1({ title, titleJa, isRight = false }: Props) {
 
 function DotPattern() {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-      {Array.from({ length: 10 }).flatMap((_, y) =>
-        Array.from({ length: 10 }).map((_, x) => (
+    <svg width="100%" height="100%" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+      {Array.from({ length: 12 }).flatMap((_, y) =>
+        Array.from({ length: 12 }).map((_, x) => (
           <circle
             key={`${x}-${y}`}
             cx={x + 0.5}
             cy={y + 0.5}
-            r="0.2"
+            r="0.15"
             fill="currentColor"
           />
         ))
