@@ -1,6 +1,12 @@
 import { useWindowSize } from 'react-use';
 
-export default function Hero() {
+import type { Assets } from '@/libs/stores/assets';
+
+type Props = {
+  assets: Assets;
+};
+
+export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
 
   return (
@@ -13,7 +19,7 @@ export default function Hero() {
       <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute">
         <h1 className="w-3/4 md:w-2/3 xl:w-1/2">
           <img
-            src="/logo.webp"
+            src={assets.logo_white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"

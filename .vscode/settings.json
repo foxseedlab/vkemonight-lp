@@ -5,7 +5,7 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "cSpell.userWords": ["kemo", "vkemonight"],
+  "cSpell.userWords": ["kemo", "vkemonight", "microcms"],
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true

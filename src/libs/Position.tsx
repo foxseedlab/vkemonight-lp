@@ -1,28 +1,31 @@
-
-export type PositionType = '主催' | 'DJ' | 'サイト制作';
+import type { PositionType } from './stores/people';
 
 type Props = {
   positions: PositionType[];
   className?: string;
-}
+};
 
 export default function Position({ positions, className = '' }: Props) {
-  const bgColors = {
-    '主催': 'bg-red-500',
-    'DJ': 'bg-purple-500',
-    'サイト制作': 'bg-neutral-500',
-  }
+  const bgColors = new Map<PositionType, string>([
+    ['主催', 'bg-red-500'],
+    ['DJ', 'bg-purple-500'],
+    ['MC', 'bg-orange-500'],
+    ['バーテンダー', 'bg-neutral-500'],
+    ['SNS運用', 'bg-blue-500'],
+    ['ロゴ制作', 'bg-green-500'],
+    ['ページ制作', 'bg-yellow-500'],
+  ]);
 
   return (
     <div className={`w-full flex gap-3 ${className}`}>
       {positions.map((position) => (
         <p
-          className={`px-6 font-medium tracking-wide leading-6 ${bgColors[position]}`}
+          className={`px-6 font-medium tracking-wide leading-6 ${bgColors.get(position)}`}
           key={position}
         >
           {position}
         </p>
       ))}
     </div>
-  )
+  );
 }

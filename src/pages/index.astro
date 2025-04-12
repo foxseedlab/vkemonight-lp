@@ -1,4 +1,12 @@
 ---
+import { fetchAssets } from '@/libs/stores/assets';
+import {
+  fetchGuests,
+  fetchOrganizers,
+  fetchStaffsWithoutOrganizer,
+} from '@/libs/stores/people';
+import { fetchDJSchedules } from '@/libs/stores/schedules';
+
 import BaseLayout from '@/layouts/Base.astro';
 
 import About from '@/components/About.astro';
@@ -10,14 +18,20 @@ import Staffs from '@/components/Staffs.astro';
 import TimeSchedule from '@/components/TimeSchedule.astro';
 
 import '@/styles/global.css';
+
+const assets = await fetchAssets();
+const guests = await fetchGuests();
+const djSchedules = await fetchDJSchedules();
+const organizers = await fetchOrganizers();
+const staffs = await fetchStaffsWithoutOrganizer();
 ---
 
-<BaseLayout>
-  <Hero client:only />
+<BaseLayout assets={assets}>
+  <Hero assets={assets} client:only />
   <About />
-  <Guests />
-  <TimeSchedule />
+  <Guests guests={guests} />
+  <TimeSchedule djSchedules={djSchedules} />
   <Contribute />
-  <Staffs />
+  <Staffs organizers={organizers} staffs={staffs} />
   <Contact />
 </BaseLayout>
