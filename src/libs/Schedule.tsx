@@ -1,5 +1,14 @@
 import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import type { Schedule as ScheduleStore } from './stores/schedules';
+
+// タイムゾーン処理のためのプラグインを設定
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+// デフォルトタイムゾーンを日本時間に設定
+dayjs.tz.setDefault('Asia/Tokyo');
 
 type Props = {
   djSchedules: ScheduleStore[];
@@ -84,8 +93,10 @@ function DJ({
   description: string;
   avatarUrl: string;
 }) {
-  const startAtHourAndMinute = dayjs(startAtStr).format('HH:mm');
-  const endAtHourAndMinute = dayjs(endAtStr).format('HH:mm');
+  const startAtHourAndMinute = dayjs(startAtStr)
+    .tz('Asia/Tokyo')
+    .format('HH:mm');
+  const endAtHourAndMinute = dayjs(endAtStr).tz('Asia/Tokyo').format('HH:mm');
 
   return (
     <li className="pl-6 flex flex-row">
