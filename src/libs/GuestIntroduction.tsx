@@ -4,14 +4,14 @@ import Paragraph from './headers/Paragraph';
 import type { PositionType } from './stores/people';
 
 type Props = {
-  imageSrc: string;
+  stillPhotographyUrl: string;
   name: string;
   positions: PositionType[];
   description: string;
 };
 
 export default function GuestIntroduction({
-  imageSrc,
+  stillPhotographyUrl,
   name,
   positions,
   description,
@@ -22,7 +22,7 @@ export default function GuestIntroduction({
         className="w-full md:w-[20rem] h-[36rem] md:h-[calc(100%+6rem)]
         absolute -top-[6rem] bottom-auto md:top-auto md:bottom-0"
       >
-        <img src={imageSrc} alt={name} className="h-full" />
+        <img src={stillPhotographyUrl} alt={name} className="h-full" />
       </figure>
 
       <div

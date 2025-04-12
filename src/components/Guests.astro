@@ -17,7 +17,7 @@ const { guests } = Astro.props;
   <ul class="pt-8 px-8 md:px-16 w-full flex flex-col gap-8">
     {guests.map((guest) => (
       <GuestIntroduction
-        imageSrc={guest.still_photography!.url}
+        stillPhotographyUrl={guest.still_photography!.url}
         name={guest.name}
         positions={guest.positions}
         description={guest.introduction}
