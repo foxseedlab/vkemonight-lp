@@ -9,7 +9,7 @@ export default function Header2({
 }: Props) {
   return (
     <h2
-      className={`w-full text-4xl font-bold tracking-wide leading-12 ${className}`}
+      className={`w-full text-3xl font-bold tracking-wide leading-12 ${className}`}
     >
       {title}
     </h2>
