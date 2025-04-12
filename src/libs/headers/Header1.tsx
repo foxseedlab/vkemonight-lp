@@ -67,6 +67,8 @@ export default function Header1({
 }
 
 function HorizontalWave({ right }: { right: boolean }) {
+  // w-20 | w-16 | w-12 | w-8 | w-4
+  // -top-3 | -top-6 | -top-9 | -top-12 | -top-15
   const waveNum = 5;
   const waveStartWidth = 20;
   const waveIntervalWidth = -4;
