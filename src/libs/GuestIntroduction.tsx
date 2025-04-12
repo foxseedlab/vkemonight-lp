@@ -1,6 +1,6 @@
 import Position from './Position';
 import Header2 from './headers/Header2';
-import Paragraph from './headers/Paragraph';
+import { ParagraphWithLineBreak } from './headers/Paragraph';
 import type { PositionType } from './stores/people';
 
 type Props = {
@@ -31,7 +31,7 @@ export default function GuestIntroduction({
       >
         <Header2 title={name} className="mb-2" />
         <Position positions={positions} />
-        <Paragraph className="mt-4">{description}</Paragraph>
+        <ParagraphWithLineBreak text={description} className="mt-4" />
       </div>
     </li>
   );

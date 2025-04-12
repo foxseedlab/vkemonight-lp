@@ -1,5 +1,5 @@
 import Position from './Position';
-import Paragraph from './headers/Paragraph';
+import { ParagraphWithLineBreak } from './headers/Paragraph';
 import type { PositionType } from './stores/people';
 
 type Props = {
@@ -30,7 +30,7 @@ export default function StaffIntroduction({
         </div>
 
         <div className="-mt-6 p-6 pb-4 w-full">
-          <Paragraph>{description}</Paragraph>
+          <ParagraphWithLineBreak text={description} className="mt-4" />
         </div>
       </div>
     </li>

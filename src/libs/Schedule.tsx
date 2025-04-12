@@ -99,7 +99,12 @@ function DJ({
           {startAtHourAndMinute} - {endAtHourAndMinute}
         </div>
         <h3 className="text-lg font-medium">{name}</h3>
-        <div>{description}</div>
+        <div
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+          dangerouslySetInnerHTML={{
+            __html: description.replace('\n', '<br>'),
+          }}
+        />
       </div>
     </li>
   );
