@@ -62,6 +62,7 @@ function DJSchedule({
             endAtStr={djSchedule.end_at}
             name={djSchedule.performer.name}
             description={djSchedule.description}
+            avatarUrl={djSchedule.performer.avatar.url}
             key={djSchedule.id}
           />
         ))}
@@ -75,11 +76,13 @@ function DJ({
   endAtStr,
   name,
   description,
+  avatarUrl,
 }: {
   startAtStr: string;
   endAtStr: string;
   name: string;
   description: string;
+  avatarUrl: string;
 }) {
   const startAtHourAndMinute = dayjs(startAtStr).format('HH:mm');
   const endAtHourAndMinute = dayjs(endAtStr).format('HH:mm');
@@ -87,7 +90,9 @@ function DJ({
   return (
     <li className="pl-6 flex flex-row">
       <figure className="w-16 h-auto flex flex-col items-center justify-center">
-        <div className="w-16 h-16 bg-gray-100 border-1 border-secondary/30" />
+        <div className="w-16 h-16 border-1 border-secondary/30">
+          <img src={avatarUrl} alt={name} className="w-full" />
+        </div>
       </figure>
       <div className="px-6">
         <div className="text-tertiary/50 font-display outlined-text-shadow-2xs text-shadow-tertiary/10">
