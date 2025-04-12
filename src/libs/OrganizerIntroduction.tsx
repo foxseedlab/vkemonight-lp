@@ -1,5 +1,6 @@
-import Position, { type PositionType } from './Position';
+import Position from './Position';
 import Paragraph from './headers/Paragraph';
+import type { PositionType } from './stores/people';
 
 type Props = {
   imageSrc: string;
@@ -19,9 +20,7 @@ export default function OrganizerIntroduction({
       <div className="w-full flex flex-row relative -top-6 -left-6">
         <figure className="w-32 h-32 bg-gray-100 border-1 border-secondary/30" />
         <div className="pt-10 px-6">
-          <h2 className="mb-1 text-lg font-medium">
-            {name}
-          </h2>
+          <h2 className="mb-1 text-lg font-medium">{name}</h2>
           <Position positions={positions} />
         </div>
       </div>

@@ -2,8 +2,18 @@
 import Footer from '@/components/Footer.astro';
 import SplashScreen from '@/components/SplashScreen.astro';
 
+import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
+
+type Props = {
+  title?: string;
+  description?: string;
+  xSite?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  assets: Assets;
+};
 
 const {
   title = 'バーチャルケモナイト',
@@ -11,6 +21,7 @@ const {
   xSite = '@KEMO_INTHE_DARK',
   noindex = true,
   nofollow = true,
+  assets,
 } = Astro.props;
 ---
 
@@ -30,7 +41,7 @@ const {
       charset="UTF-8"
       extend={{
         link: [
-          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+          { rel: "icon", type: "image/svg+xml", href: assets.favicon.url },
         ],
         meta: [
           { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -43,6 +54,6 @@ const {
 	<body>
     <SplashScreen />
 		<slot />
-    <Footer />
+    <Footer assets={assets} />
 	</body>
 </html>

@@ -1,8 +1,16 @@
 ---
 import FeaturedImage from '@/libs/FeaturedImage';
-import Schedule from '@/libs/Schedule';
+import ScheduleArea from '@/libs/Schedule';
 import Wave from '@/libs/Wave.astro';
 import Header1 from '@/libs/headers/Header1';
+
+import type { Schedule } from '@/libs/stores/schedules';
+
+type Props = {
+  djSchedules: Schedule[];
+};
+
+const { djSchedules } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72" id="timeschedule">
@@ -19,8 +27,7 @@ import Header1 from '@/libs/headers/Header1';
           現時点の予定です。変更になる場合がございます。
         </div>
 
-        <Schedule />
-
+        <ScheduleArea djSchedules={djSchedules} />
       </div>
 
       <FeaturedImage imageSrc="" />

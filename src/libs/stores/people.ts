@@ -18,7 +18,7 @@ export type Person = {
     width: number;
   };
   introduction: string;
-  positions: Position[];
+  positions: PositionType[];
   social_links: {
     fieldId: string;
     type: SocialLinkType[];
@@ -30,7 +30,7 @@ export type Person = {
   is_performer: boolean;
 };
 
-export type Position =
+export type PositionType =
   | '主催'
   | 'DJ'
   | 'MC'

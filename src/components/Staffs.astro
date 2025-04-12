@@ -2,50 +2,39 @@
 import OrganizerIntroduction from '@/libs/OrganizerIntroduction';
 import StaffIntroduction from '@/libs/StaffIntroduction';
 import Header1 from '@/libs/headers/Header1';
+
+import type { Person } from '@/libs/stores/people';
+
+type Props = {
+  organizers: Person[];
+  staffs: Person[];
+};
+
+const { organizers, staffs } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72" id="staffs">
   <Header1 title="STAFFS" titleJa="スタッフ" className="mb-16" />
 
   <ul class="px-8 md:px-16 w-full flex flex-col items-end gap-12">
-    <OrganizerIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['主催', 'DJ']}
-      description="仮想空間で心地よい音楽を届ける優しい雰囲気のDJ。エレクトロニックミュージックからJ-POPまで、温かみのあるセンスでミックスするスタイルが魅力です。オンラインイベントを中心に活動し、最近では北米、ヨーロッパ、アジア各地の仮想フェスにも招かれています。聴く人の心に寄り添うサウンドと柔らかな視覚効果を組み合わせたパフォーマンスで、デジタルカルチャーの新しい可能性を優しく広げる親しみやすいアーティスト。SNSでは多くの方に愛されていますが、まだリアルでの出会いを大切にしたいと思っています。"
-    />
+    {organizers.map((organizer) => (
+      <OrganizerIntroduction
+        imageSrc={organizer.avatar.url}
+        name={organizer.name}
+        positions={organizer.positions}
+        description={organizer.introduction}
+      />
+    ))}
   </ul>
 
   <ul class="mt-12 px-8 md:px-16 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-    <StaffIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['サイト制作']}
-      description="ケモノが大好き！よろしくね〜！"
-    />
-    <StaffIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['サイト制作']}
-      description="ケモノが大好き！よろしくね〜！"
-    />
-    <StaffIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['サイト制作']}
-      description="ケモノが大好き！よろしくね〜！"
-    />
-    <StaffIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['サイト制作']}
-      description="ケモノが大好き！よろしくね〜！"
-    />
-    <StaffIntroduction
-      imageSrc=""
-      name="ふぉくしーど"
-      positions={['サイト制作']}
-      description="ケモノが大好き！よろしくね〜！"
-    />
+    {staffs.map((staff) => (
+      <StaffIntroduction
+        imageSrc={staff.avatar.url}
+        name={staff.name}
+        positions={staff.positions}
+        description={staff.introduction}
+      />
+    ))}
   </ul>
 </section>

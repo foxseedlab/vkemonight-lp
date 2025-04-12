@@ -1,14 +1,17 @@
-export default function Schedule() {
+import type { Schedule as ScheduleStore } from './stores/schedules';
+
+type Props = {
+  djSchedules: ScheduleStore[];
+};
+
+export default function Schedule({ djSchedules }: Props) {
   return (
     <ul className="mt-4 w-full tracking-wide flex flex-col gap-4">
       <NormalSchedule startAtStr="20:45" title="開場" />
-      <DJSchedule startAtStr="21:00" title="DJ" />
+      <DJSchedule startAtStr="21:00" title="DJ" djSchedules={djSchedules} />
       <ComingSoonSchedule />
       <NormalSchedule startAtStr="03:50" title="記念撮影" />
-      <NormalSchedule
-        startAtStr="04:00"
-        title="イベント終了"
-      />
+      <NormalSchedule startAtStr="04:00" title="イベント終了" />
     </ul>
   );
 }
@@ -37,10 +40,7 @@ function NormalSchedule({
 }: { startAtStr: string; title: string }) {
   return (
     <li className="bg-primary">
-      <ScheduleTimeAndTitle
-        startAtStr={startAtStr}
-        title={title}
-      />
+      <ScheduleTimeAndTitle startAtStr={startAtStr} title={title} />
     </li>
   );
 }
@@ -48,57 +48,22 @@ function NormalSchedule({
 function DJSchedule({
   startAtStr,
   title,
-}: { startAtStr: string; title: string }) {
+  djSchedules,
+}: { startAtStr: string; title: string; djSchedules: ScheduleStore[] }) {
   return (
     <li className="bg-primary">
-      <ScheduleTimeAndTitle
-        startAtStr={startAtStr}
-        title={title}
-      />
+      <ScheduleTimeAndTitle startAtStr={startAtStr} title={title} />
 
       <ul className="mb-5 flex flex-col gap-4">
-        <DJ
-          startAtStr="21:00"
-          endAtStr="22:00"
-          name="ふぉくしーど"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="22:00"
-          endAtStr="23:00"
-          name="FOXSEED"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="23:00"
-          endAtStr="24:00"
-          name="ふぉくしーど"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="24:00"
-          endAtStr="01:00"
-          name="FOXSEED"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="01:00"
-          endAtStr="02:00"
-          name="ふぉくしーど"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="02:00"
-          endAtStr="03:00"
-          name="ふぉくしーど"
-          description="FUTURE BASE 流します"
-        />
-        <DJ
-          startAtStr="03:00"
-          endAtStr="04:00"
-          name="FOXSEED"
-          description="FUTURE BASE 流します"
-        />
+        {djSchedules.map((djSchedule) => (
+          <DJ
+            startAtStr={djSchedule.start_at}
+            endAtStr={djSchedule.end_at}
+            name={djSchedule.performer.name}
+            description={djSchedule.description}
+            key={djSchedule.id}
+          />
+        ))}
       </ul>
     </li>
   );

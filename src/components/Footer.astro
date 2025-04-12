@@ -1,7 +1,17 @@
+---
+import type { Assets } from '@/libs/stores/assets';
+
+type Props = {
+  assets: Assets;
+};
+
+const { assets } = Astro.props;
+---
+
 <footer class="mt-64 px-8 md:px-16 pt-12 pb-8 text-secondary bg-secondary-background">
   <div class="mb-4 w-64">
     <img
-      src="/logo-black.webp"
+      src={assets.logo_black.url}
       alt="バーチャルケモナイト ロゴ"
       class="w-full select-none pointer-events-none"
       draggable="false"
