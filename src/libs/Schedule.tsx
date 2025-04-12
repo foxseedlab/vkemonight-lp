@@ -18,7 +18,7 @@ function ScheduleTimeAndTitle({
   title,
 }: { startAtStr: string; title: string }) {
   return (
-    <h3 className="text-xl font-medium leading-14 flex flex-row">
+    <h2 className="text-xl font-medium leading-14 flex flex-row">
       <div
         className="pl-6 pr-12 font-display
         text-tertiary outlined-text-shadow-1dot5xs text-shadow-current
@@ -27,7 +27,7 @@ function ScheduleTimeAndTitle({
         {startAtStr}
       </div>
       <div className="mt-[0.1rem]">{title}</div>
-    </h3>
+    </h2>
   );
 }
 
@@ -124,7 +124,7 @@ function DJ({
         <div className="text-tertiary/50 font-display outlined-text-shadow-2xs text-shadow-tertiary/10">
           {startAtStr} - {endAtStr}
         </div>
-        <h4 className="text-lg font-medium">{name}</h4>
+        <h3 className="text-lg font-medium">{name}</h3>
         <div>{description}</div>
       </div>
     </li>
