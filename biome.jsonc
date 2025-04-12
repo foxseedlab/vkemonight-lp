@@ -32,7 +32,7 @@
       "semicolons": "always",
       "indentStyle": "space",
       "indentWidth": 2,
-      "lineWidth": 60,
+      "lineWidth": 80,
       "lineEnding": "lf",
       "bracketSpacing": true,
       "bracketSameLine": false
