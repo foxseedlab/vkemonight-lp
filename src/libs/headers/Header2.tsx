@@ -1,11 +1,16 @@
 type Props = {
   title: string;
   className?: string;
-}
+};
 
-export default function Header2({ title, className = '' }: Props) {
+export default function Header2({
+  title,
+  className = '',
+}: Props) {
   return (
-    <h2 className={`w-full text-4xl font-bold tracking-wide ${className}`}>
+    <h2
+      className={`w-full text-4xl font-bold tracking-wide leading-12 ${className}`}
+    >
       {title}
     </h2>
   );
