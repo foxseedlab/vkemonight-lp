@@ -1,6 +1,9 @@
 ---
+import Footer from '@/components/Footer.astro';
 import SplashScreen from '@/components/SplashScreen.astro';
+
 import { SEO } from 'astro-seo';
+import Font from './Font.astro';
 
 const {
   title = 'バーチャルケモナイト',
@@ -34,10 +37,12 @@ const {
         ],
       }}
     />
+    <Font />
 	</head>
 
 	<body>
-    <!-- <SplashScreen /> -->
+    <SplashScreen />
 		<slot />
+    <Footer />
 	</body>
 </html>
