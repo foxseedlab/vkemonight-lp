@@ -84,13 +84,13 @@ export async function fetchOrganizers(): Promise<Person[]> {
   return res.contents;
 }
 
-export async function fetchStaffs(): Promise<Person[]> {
+export async function fetchStaffsWithoutOrganizer(): Promise<Person[]> {
   const client = createCMSClient();
 
   const res = await client.getList<Person>({
     endpoint: 'people',
     queries: {
-      filters: 'is_staff[equals]true',
+      filters: 'is_staff[equals]true[and]is_organizer[equals]false',
     },
   });
 

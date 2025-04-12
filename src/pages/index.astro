@@ -3,7 +3,7 @@ import { fetchAssets } from '@/libs/stores/assets';
 import {
   fetchGuests,
   fetchOrganizers,
-  fetchStaffs,
+  fetchStaffsWithoutOrganizer,
 } from '@/libs/stores/people';
 import { fetchDJSchedules } from '@/libs/stores/schedules';
 
@@ -23,7 +23,7 @@ const assets = await fetchAssets();
 const guests = await fetchGuests();
 const djSchedules = await fetchDJSchedules();
 const organizers = await fetchOrganizers();
-const staffs = await fetchStaffs();
+const staffs = await fetchStaffsWithoutOrganizer();
 ---
 
 <BaseLayout assets={assets}>
