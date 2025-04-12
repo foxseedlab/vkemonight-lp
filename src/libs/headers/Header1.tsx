@@ -4,46 +4,62 @@ type Props = {
   right?: boolean;
   small?: boolean;
   className?: string;
-}
+};
 
 export default function Header1({
-  title, titleJa, right = false, small = false, className = ''
+  title,
+  titleJa,
+  right = false,
+  small = false,
+  className = '',
 }: Props) {
   const displayFontSize = small
     ? 'text-[3.6rem] md:text-[8rem] xl:text-[10rem]'
     : 'text-8xl md:text-[12rem] xl:text-[14rem]';
 
   return (
-    <h1 className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}>
-      <div className={
-        right
-          ? `mr-6 md:mr-12 xl:mr-16 ${displayFontSize}
-            text-right font-display text-header1 tracking-tighter leading-none`
-          : `ml-6 md:ml-12 xl:ml-16 ${displayFontSize}
-            font-display text-header1 tracking-tighter leading-none`
-      } dangerouslySetInnerHTML={{ __html: title }} />
-
-      <div className={
-        right
-          ? 'mt-4 md:mt-8 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
-          : 'mt-4 md:mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
-      }>
-        <div className={
+    <h1
+      className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}
+    >
+      <div
+        className={
           right
-            ? 'ml-4 md:ml-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
-            : 'mr-4 md:mr-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
-        }>
+            ? `mr-6 md:mr-12 xl:mr-16 ${displayFontSize}
+            text-right font-display text-header1 tracking-tighter leading-none`
+            : `ml-6 md:ml-12 xl:ml-16 ${displayFontSize}
+            font-display text-header1 tracking-tighter leading-none`
+        }
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+
+      <div
+        className={
+          right
+            ? 'mt-4 md:mt-8 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
+            : 'mt-4 md:mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
+        }
+      >
+        <div
+          className={
+            right
+              ? 'ml-4 md:ml-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
+              : 'mr-4 md:mr-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
+          }
+        >
           {titleJa}
         </div>
 
         <HorizontalWave right={right} />
       </div>
 
-      <div className={
-        right
-          ? 'w-48 h-48 md:w-64 md:h-64 text-header1 absolute bottom-36 -left-4'
-          : 'w-48 h-48 md:w-64 md:h-64 text-header1 absolute bottom-36 -right-4'
-      }>
+      <div
+        className={
+          right
+            ? 'w-48 h-48 md:w-64 md:h-64 text-header1 absolute bottom-36 -left-4'
+            : 'w-48 h-48 md:w-64 md:h-64 text-header1 absolute bottom-36 -right-4'
+        }
+      >
         <DotPattern />
       </div>
     </h1>
@@ -62,13 +78,17 @@ function HorizontalWave({ right }: { right: boolean }) {
       <div className="w-full h-[0.1rem] md:h-[0.2rem] bg-header1" />
 
       {Array.from({ length: waveNum }).map((_, index) => (
-        <div key={index} className={
-          right
-            ? `w-${waveStartWidth + index * waveIntervalWidth} h-[0.1rem] md:h-[0.2rem]
+        <div
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+          key={index}
+          className={
+            right
+              ? `w-${waveStartWidth + index * waveIntervalWidth} h-[0.1rem] md:h-[0.2rem]
               bg-header1 absolute -top-${waveStartMinusTop + index * waveIntervalMinusTop} left-0`
-            : `w-${waveStartWidth + index * waveIntervalWidth} h-[0.1rem] md:h-[0.2rem]
+              : `w-${waveStartWidth + index * waveIntervalWidth} h-[0.1rem] md:h-[0.2rem]
               bg-header1 absolute -top-${waveStartMinusTop + index * waveIntervalMinusTop} right-0`
-        } />
+          }
+        />
       ))}
     </div>
   );
@@ -76,17 +96,23 @@ function HorizontalWave({ right }: { right: boolean }) {
 
 function DotPattern() {
   return (
-    <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 12 12"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="ドットパターン"
+    >
+      <title>ドットパターン</title>
       {Array.from({ length: 12 }).flatMap((_, y) =>
         Array.from({ length: 12 }).map((_, x) => (
           <circle
-            key={`${x}-${y}`}
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            key={`dot-${x}-${y}`}
             cx={x + 0.5}
             cy={y + 0.5}
             r="0.15"
             fill="currentColor"
           />
-        ))
+        )),
       )}
     </svg>
   );
