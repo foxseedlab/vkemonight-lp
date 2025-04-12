@@ -21,7 +21,7 @@ function ScheduleTimeAndTitle({
     <h3 className="text-xl font-medium leading-14 flex flex-row">
       <div
         className="pl-6 pr-12 font-display
-        text-tertiary outlined-text-shadow-1dot5xs text-shadow-tertiary
+        text-tertiary outlined-text-shadow-1dot5xs text-shadow-current
         flex flex-col items-center"
       >
         {startAtStr}
@@ -133,7 +133,7 @@ function DJ({
 
 function ComingSoonSchedule() {
   return (
-    <li className="text-center font-display outlined-text-shadow-1dot5xs text-shadow-secondary">
+    <li className="text-center font-display outlined-text-shadow-1dot5xs text-shadow-current">
       coming soon...
     </li>
   );
