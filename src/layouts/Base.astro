@@ -1,5 +1,7 @@
 ---
+import Footer from '@/components/Footer.astro';
 import SplashScreen from '@/components/SplashScreen.astro';
+
 import { SEO } from 'astro-seo';
 
 const {
@@ -37,7 +39,8 @@ const {
 	</head>
 
 	<body>
-    <!-- <SplashScreen /> -->
+    <SplashScreen />
 		<slot />
+    <Footer />
 	</body>
 </html>
