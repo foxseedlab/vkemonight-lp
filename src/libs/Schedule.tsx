@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import type { Schedule as ScheduleStore } from './stores/schedules';
 
 type Props = {
@@ -7,11 +8,11 @@ type Props = {
 export default function Schedule({ djSchedules }: Props) {
   return (
     <ul className="mt-4 w-full tracking-wide flex flex-col gap-4">
-      <NormalSchedule startAtStr="20:45" title="開場" />
-      <DJSchedule startAtStr="21:00" title="DJ" djSchedules={djSchedules} />
+      <NormalSchedule startAtStr="19:45" title="開場" />
+      <DJSchedule startAtStr="20:00" title="DJ" djSchedules={djSchedules} />
       <ComingSoonSchedule />
-      <NormalSchedule startAtStr="03:50" title="記念撮影" />
-      <NormalSchedule startAtStr="04:00" title="イベント終了" />
+      <NormalSchedule startAtStr="04:00" title="記念撮影" />
+      <NormalSchedule startAtStr="04:15" title="イベント終了" />
     </ul>
   );
 }
@@ -80,6 +81,9 @@ function DJ({
   name: string;
   description: string;
 }) {
+  const startAtHourAndMinute = dayjs(startAtStr).format('HH:mm');
+  const endAtHourAndMinute = dayjs(endAtStr).format('HH:mm');
+
   return (
     <li className="pl-6 flex flex-row">
       <figure className="w-16 h-auto flex flex-col items-center justify-center">
@@ -87,7 +91,7 @@ function DJ({
       </figure>
       <div className="px-6">
         <div className="text-tertiary/50 font-display outlined-text-shadow-2xs text-shadow-tertiary/10">
-          {startAtStr} - {endAtStr}
+          {startAtHourAndMinute} - {endAtHourAndMinute}
         </div>
         <h3 className="text-lg font-medium">{name}</h3>
         <div>{description}</div>
