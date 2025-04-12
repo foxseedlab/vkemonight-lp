@@ -9,7 +9,7 @@ export default function PrimaryButton({ label, href, className = '' }: Props) {
     <a
       href={href}
       className={`
-        px-20 py-2 text-2xl tracking-widest font-medium
+        px-20 py-2 text-2xl text-primary tracking-widest font-medium
         bg-primary-button/50 border-2 border-primary
         ${className}
       `}

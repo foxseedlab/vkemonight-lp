@@ -2,26 +2,31 @@ type Props = {
   title: string;
   titleJa: string;
   right?: boolean;
+  small?: boolean;
   className?: string;
 }
 
-export default function Header1({ title, titleJa, right = false, className = '' }: Props) {
+export default function Header1({
+  title, titleJa, right = false, small = false, className = ''
+}: Props) {
+  const displayFontSize = small
+    ? 'text-[3.6rem] md:text-[8rem] xl:text-[10rem]'
+    : 'text-8xl md:text-[12rem] xl:text-[14rem]';
+
   return (
     <h1 className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}>
       <div className={
         right
-          ? `mr-6 md:mr-12 xl:mr-16 text-8xl md:text-[12rem] xl:text-[14rem]
-            text-right font-display text-header1 tracking-tighter`
-          : `ml-6 md:ml-12 xl:ml-16 text-8xl md:text-[12rem] xl:text-[14rem]
-            font-display text-header1 tracking-tighter`
-      }>
-        {title}
-      </div>
+          ? `mr-6 md:mr-12 xl:mr-16 ${displayFontSize}
+            text-right font-display text-header1 tracking-tighter leading-none`
+          : `ml-6 md:ml-12 xl:ml-16 ${displayFontSize}
+            font-display text-header1 tracking-tighter leading-none`
+      } dangerouslySetInnerHTML={{ __html: title }} />
 
       <div className={
         right
-          ? 'mt-2 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
-          : 'mt-2 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
+          ? 'mt-4 md:mt-8 mr-6 md:mr-12 xl:mr-16 flex flex-row-reverse items-center'
+          : 'mt-4 md:mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
       }>
         <div className={
           right
