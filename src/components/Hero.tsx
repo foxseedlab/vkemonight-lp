@@ -19,7 +19,7 @@ export default function Hero({ assets }: Props) {
       <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute">
         <h1 className="w-3/4 md:w-2/3 xl:w-1/2">
           <img
-            src={assets.logo_white.url}
+            src={assets.logos.white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
@@ -35,10 +35,7 @@ export default function Hero({ assets }: Props) {
   );
 }
 
-function createMaskImageTag(
-  width: number,
-  height: number,
-): string {
+function createMaskImageTag(width: number, height: number): string {
   const svgBaseWidth = 1280;
   const svgWaveHeight = 200;
 

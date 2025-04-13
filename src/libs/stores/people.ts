@@ -1,4 +1,4 @@
-import { createCMSClient } from './init';
+import { type Image, createCMSClient } from './init';
 
 export type Person = {
   id: string;
@@ -7,16 +7,8 @@ export type Person = {
   publishedAt: string;
   revisedAt: string;
   name: string;
-  avatar: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  still_photography?: {
-    url: string;
-    height: number;
-    width: number;
-  };
+  avatar: Image;
+  still_photography?: Image;
   introduction: string;
   positions: PositionType[];
   social_links: {
