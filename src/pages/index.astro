@@ -24,14 +24,16 @@ const guests = await fetchGuests();
 const djSchedules = await fetchDJSchedules();
 const organizers = await fetchOrganizers();
 const staffs = await fetchStaffsWithoutOrganizer();
+
+console.log(assets.featured_images);
 ---
 
 <BaseLayout assets={assets}>
   <Hero assets={assets} client:only />
-  <About />
+  <About featuredImage={assets.featured_images.about[0]} />
   <Guests guests={guests} />
-  <TimeSchedule djSchedules={djSchedules} />
-  <Contribute />
+  <TimeSchedule djSchedules={djSchedules} featuredImage={assets.featured_images.timeschedule} />
+  <Contribute featuredImage={assets.featured_images.contribute} />
   <Staffs organizers={organizers} staffs={staffs} />
   <Contact />
 </BaseLayout>
