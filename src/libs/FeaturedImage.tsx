@@ -4,25 +4,33 @@ import 'swiper/css';
 
 import type { Image } from './stores/init';
 
-type Props = {
+type FeaturedImageProps = {
   image: Image;
+  right?: boolean;
 };
 
-export default function FeaturedImage({ image }: Props) {
+export default function FeaturedImage({ image, right }: FeaturedImageProps) {
   return (
     <figure className="w-full md:w-1/2">
       <div className="w-full aspect-square">
         <img
           src={image.url}
           alt="アイキャッチ画像"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover mask-contain ${
+            right ? 'mask-featured-image-right' : 'mask-featured-image-left'
+          }`}
         />
       </div>
     </figure>
   );
 }
 
-export function FeaturedImageSlide({ images }: { images: Image[] }) {
+type FeaturedImageSlideProps = {
+  images: Image[];
+  right?: boolean;
+};
+
+export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
   const intervalMilliseconds = 3000;
 
   return (
@@ -36,6 +44,9 @@ export function FeaturedImageSlide({ images }: { images: Image[] }) {
           disableOnInteraction: false,
         }}
         loop={true}
+        className={`mask-contain ${
+          right ? 'mask-featured-image-right' : 'mask-featured-image-left'
+        }`}
       >
         {images.map((image, index) => (
           <SwiperSlide key={image.url}>

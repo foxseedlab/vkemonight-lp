@@ -90,3 +90,11 @@ body::before {
       --tw-text-shadow-color
     ), -2px 0 0 var(--tw-text-shadow-color), 2px 0 0 var(--tw-text-shadow-color);
 }
+
+.mask-featured-image-left {
+  mask-image: url("/featured-image-mask-left.webp");
+}
+
+.mask-featured-image-right {
+  mask-image: url("/featured-image-mask-right.webp");
+}
