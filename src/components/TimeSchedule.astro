@@ -32,7 +32,9 @@ const { djSchedules, featuredImage } = Astro.props;
         <ScheduleArea djSchedules={djSchedules} />
       </div>
 
-      <FeaturedImage image={featuredImage} right />
+      <div class="w-full md:w-1/2">
+        <FeaturedImage image={featuredImage} right />
+      </div>
     </div>
   </div>
 

@@ -11,7 +11,7 @@ type FeaturedImageProps = {
 
 export default function FeaturedImage({ image, right }: FeaturedImageProps) {
   return (
-    <figure className="w-full md:w-1/2">
+    <figure className="relative">
       <div className="w-full aspect-square">
         <img
           src={image.url}
@@ -21,6 +21,18 @@ export default function FeaturedImage({ image, right }: FeaturedImageProps) {
               ? 'mask-none md:mask-featured-image-right'
               : 'mask-none md:mask-featured-image-left'
           }`}
+        />
+      </div>
+
+      <div className="w-full absolute -bottom-4 left-0 z-10">
+        <img
+          src={
+            right
+              ? '/featured-image-frame-right.svg'
+              : '/featured-image-frame-left.svg'
+          }
+          alt="縁エフェクト"
+          className="w-full"
         />
       </div>
     </figure>
@@ -36,7 +48,7 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
   const intervalMilliseconds = 3000;
 
   return (
-    <figure className="w-full md:w-1/2">
+    <figure className="relative">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}
@@ -64,6 +76,18 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="w-full absolute -bottom-4 left-0 z-10">
+        <img
+          src={
+            right
+              ? '/featured-image-frame-right.svg'
+              : '/featured-image-frame-left.svg'
+          }
+          alt="縁エフェクト"
+          className="w-full"
+        />
+      </div>
     </figure>
   );
 }
