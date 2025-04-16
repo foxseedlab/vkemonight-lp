@@ -17,7 +17,9 @@ export default function FeaturedImage({ image, right }: FeaturedImageProps) {
           src={image.url}
           alt="アイキャッチ画像"
           className={`w-full h-full object-cover mask-contain ${
-            right ? 'mask-featured-image-right' : 'mask-featured-image-left'
+            right
+              ? 'mask-none md:mask-featured-image-right'
+              : 'mask-none md:mask-featured-image-left'
           }`}
         />
       </div>
@@ -45,7 +47,9 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
         }}
         loop={true}
         className={`mask-contain ${
-          right ? 'mask-featured-image-right' : 'mask-featured-image-left'
+          right
+            ? 'mask-none md:mask-featured-image-right'
+            : 'mask-none md:mask-featured-image-left'
         }`}
       >
         {images.map((image, index) => (
