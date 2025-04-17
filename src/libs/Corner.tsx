@@ -2,14 +2,16 @@ export function RightAngledIsoscelesTriangleCorner({
   cornerSize,
   borderWidth,
   strokeColor,
+  className,
 }: {
   cornerSize: number;
   borderWidth: number;
   strokeColor: string;
+  className: string;
 }) {
   return (
     <svg
-      className="absolute top-2 right-2"
+      className={className}
       width={cornerSize}
       height={cornerSize}
       viewBox={`${-borderWidth / 2} ${-borderWidth / 2} ${cornerSize + borderWidth} ${cornerSize + borderWidth}`}

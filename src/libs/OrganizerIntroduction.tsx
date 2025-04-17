@@ -61,6 +61,7 @@ export default function OrganizerIntroduction({
         cornerSize={cornerSize}
         borderWidth={borderWidth}
         strokeColor="rgba(255, 255, 255, 0.5)"
+        className="absolute top-2 right-2"
       />
     </li>
   );
