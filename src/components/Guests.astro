@@ -21,6 +21,7 @@ const { guests } = Astro.props;
         name={guest.name}
         positions={guest.positions}
         description={guest.introduction}
+        client:load
       />
     ))}
   </ul>
