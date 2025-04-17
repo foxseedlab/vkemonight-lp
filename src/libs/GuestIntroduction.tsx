@@ -1,4 +1,6 @@
 import { useMeasure } from 'react-use';
+import { BeveledRectangleBox } from './Box';
+import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
 import Header2 from './headers/Header2';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
@@ -19,7 +21,7 @@ export default function GuestIntroduction({
 }: Props) {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const cornerSize = 24;
-  const borderWidth = 4;
+  const borderWidth = 5;
 
   return (
     <li className="mt-[6rem] w-full relative">
@@ -42,35 +44,17 @@ export default function GuestIntroduction({
         </div>
       </div>
 
-      <svg
-        className="w-full h-full absolute bottom-0"
-        viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          d={`M ${cornerSize},0 L ${width},0 L ${width},${height - cornerSize} L ${width - cornerSize},${height} L 0,${height} L 0,${cornerSize} Z`}
-          fill="rgba(255, 255, 255, 0.3)"
-          stroke="rgba(255, 255, 255, 0.2)"
-          strokeWidth={borderWidth}
-        />
-      </svg>
+      <BeveledRectangleBox
+        width={width}
+        height={height}
+        cornerSize={cornerSize}
+        borderWidth={borderWidth}
+      />
 
-      <svg
-        className="absolute top-2 right-2"
-        width={cornerSize}
-        height={cornerSize}
-        viewBox={`${-borderWidth / 2} ${-borderWidth / 2} ${cornerSize + borderWidth} ${cornerSize + borderWidth}`}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          d={`M ${cornerSize},0 L 0,0 L ${cornerSize},${cornerSize} Z`}
-          fill="none"
-          stroke="rgba(255, 255, 255, 0.5)"
-          strokeWidth={borderWidth / 2}
-        />
-      </svg>
+      <RightAngledIsoscelesTriangleCorner
+        cornerSize={cornerSize}
+        borderWidth={borderWidth}
+      />
     </li>
   );
 }

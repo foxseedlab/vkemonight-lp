@@ -23,6 +23,7 @@ const { organizers, staffs } = Astro.props;
         positions={organizer.positions}
         description={organizer.introduction}
         avatarUrl={organizer.avatar.url}
+        client:load
       />
     ))}
   </ul>
@@ -34,6 +35,7 @@ const { organizers, staffs } = Astro.props;
         positions={staff.positions}
         description={staff.introduction}
         avatarUrl={staff.avatar.url}
+        client:load
       />
     ))}
   </ul>
