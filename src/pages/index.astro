@@ -28,10 +28,10 @@ const staffs = await fetchStaffsWithoutOrganizer();
 
 <BaseLayout assets={assets}>
   <Hero assets={assets} client:only />
-  <About />
+  <About featuredImages={assets.featured_images.about} />
   <Guests guests={guests} />
-  <TimeSchedule djSchedules={djSchedules} />
-  <Contribute />
+  <TimeSchedule djSchedules={djSchedules} featuredImage={assets.featured_images.timeschedule} />
+  <Contribute featuredImage={assets.featured_images.contribute} />
   <Staffs organizers={organizers} staffs={staffs} />
   <Contact />
 </BaseLayout>

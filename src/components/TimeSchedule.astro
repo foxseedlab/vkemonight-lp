@@ -3,14 +3,16 @@ import FeaturedImage from '@/libs/FeaturedImage';
 import ScheduleArea from '@/libs/Schedule';
 import Wave from '@/libs/Wave.astro';
 import Header1 from '@/libs/headers/Header1';
+import type { Image } from '@/libs/stores/init';
 
 import type { Schedule } from '@/libs/stores/schedules';
 
 type Props = {
   djSchedules: Schedule[];
+  featuredImage: Image;
 };
 
-const { djSchedules } = Astro.props;
+const { djSchedules, featuredImage } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72" id="timeschedule">
@@ -30,7 +32,9 @@ const { djSchedules } = Astro.props;
         <ScheduleArea djSchedules={djSchedules} />
       </div>
 
-      <FeaturedImage imageSrc="" />
+      <div class="w-full md:w-1/2">
+        <FeaturedImage image={featuredImage} right />
+      </div>
     </div>
   </div>
 

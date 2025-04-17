@@ -90,3 +90,15 @@ body::before {
       --tw-text-shadow-color
     ), -2px 0 0 var(--tw-text-shadow-color), 2px 0 0 var(--tw-text-shadow-color);
 }
+
+.md\:mask-featured-image-left {
+  @media (width >= 48rem /* 768px */) {
+    mask-image: url("/featured-image-mask-left.webp");
+  }
+}
+
+.md\:mask-featured-image-right {
+  @media (width >= 48rem /* 768px */) {
+    mask-image: url("/featured-image-mask-right.webp");
+  }
+}

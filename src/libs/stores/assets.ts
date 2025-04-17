@@ -1,24 +1,33 @@
-import { createCMSClient } from './init';
+import { type Image, createCMSClient } from './init';
 
 export type Assets = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
-  favicon: {
-    url: string;
-    height: number;
-    width: number;
+  favicon: Image;
+  featured_images: {
+    fieldId: string;
+    hero: Image;
+    about: Image[];
+    timeschedule: Image;
+    contribute: Image;
   };
-  logo_white: {
-    url: string;
-    height: number;
-    width: number;
+  logos: {
+    fieldId: string;
+    white: Image;
+    black: Image;
   };
-  logo_black: {
-    url: string;
-    height: number;
-    width: number;
+  social_logos: {
+    fieldId: string;
+    twitter: Image;
+    bluesky: Image;
+    facebook: Image;
+    youtube: Image;
+    mixcloud: Image;
+    vrchat: Image;
+    github: Image;
+    kofi: Image;
   };
 };
 

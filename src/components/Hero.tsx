@@ -16,10 +16,10 @@ export default function Hero({ assets }: Props) {
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
     >
-      <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute">
+      <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute z-10">
         <h1 className="w-3/4 md:w-2/3 xl:w-1/2">
           <img
-            src={assets.logo_white.url}
+            src={assets.logos.white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
@@ -30,15 +30,18 @@ export default function Hero({ assets }: Props) {
         </div>
       </div>
 
-      <div className="w-full h-full bg-gray-900" />
+      <figure className="w-full h-full">
+        <img
+          src={assets.featured_images.hero.url}
+          alt="ヒーロ"
+          className="w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem]"
+        />
+      </figure>
     </section>
   );
 }
 
-function createMaskImageTag(
-  width: number,
-  height: number,
-): string {
+function createMaskImageTag(width: number, height: number): string {
   const svgBaseWidth = 1280;
   const svgWaveHeight = 200;
 

@@ -19,7 +19,7 @@ export default function StaffIntroduction({
     <li className="w-full flex flex-col items-end">
       <div className="mt-6 w-[calc(100%-1.5rem)] bg-primary/30 border-2 border-primary/20 relative">
         <div className="w-full flex flex-row relative -top-6 -left-6">
-          <figure className="w-32 h-32 border-2 border-primary-20">
+          <figure className="w-32 h-32 border-2 border-primary/20">
             <img src={avatarUrl} alt={name} className="w-full" />
           </figure>
 
