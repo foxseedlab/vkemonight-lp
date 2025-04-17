@@ -1,7 +1,12 @@
 export function RightAngledIsoscelesTriangleCorner({
   cornerSize,
   borderWidth,
-}: { cornerSize: number; borderWidth: number }) {
+  strokeColor,
+}: {
+  cornerSize: number;
+  borderWidth: number;
+  strokeColor: string;
+}) {
   return (
     <svg
       className="absolute top-2 right-2"
@@ -14,7 +19,7 @@ export function RightAngledIsoscelesTriangleCorner({
       <path
         d={`M ${cornerSize},0 L 0,0 L ${cornerSize},${cornerSize} Z`}
         fill="none"
-        stroke="rgba(255, 255, 255, 0.5)"
+        stroke={strokeColor}
         strokeWidth={borderWidth / 2}
       />
     </svg>

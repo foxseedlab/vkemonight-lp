@@ -49,11 +49,14 @@ export default function GuestIntroduction({
         height={height}
         cornerSize={cornerSize}
         borderWidth={borderWidth}
+        fillColor="rgba(255, 255, 255, 0.3)"
+        strokeColor="rgba(255, 255, 255, 0.2)"
       />
 
       <RightAngledIsoscelesTriangleCorner
         cornerSize={cornerSize}
         borderWidth={borderWidth}
+        strokeColor="rgba(255, 255, 255, 0.5)"
       />
     </li>
   );

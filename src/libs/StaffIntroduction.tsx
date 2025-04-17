@@ -1,5 +1,5 @@
 import { useMeasure } from 'react-use';
-import { BeveledRectangleBox } from './Box';
+import { BeveledRectangleBox, BeveledRectangleFigure } from './Box';
 import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
@@ -27,9 +27,15 @@ export default function StaffIntroduction({
       <div className="mt-6 w-[calc(100%-1.5rem)] relative">
         <div ref={ref} className="w-full h-full relative z-10">
           <div className="w-full flex flex-row relative -top-6 -left-6">
-            <figure className="w-32 h-32 border-2 border-primary/20">
-              <img src={avatarUrl} alt={name} className="w-full" />
-            </figure>
+            <BeveledRectangleFigure
+              imgSrc={avatarUrl}
+              imgAlt={name}
+              size={16}
+              cornerSize={2}
+              borderWidth={0.5}
+              strokeColor="var(--color-secondary-background)"
+              className="w-32 h-32"
+            />
 
             {/* 本文 */}
             <div className="pt-10 px-6">
@@ -48,11 +54,14 @@ export default function StaffIntroduction({
           height={height}
           cornerSize={cornerSize}
           borderWidth={borderWidth}
+          fillColor="rgba(255, 255, 255, 0.3)"
+          strokeColor="rgba(255, 255, 255, 0.2)"
         />
 
         <RightAngledIsoscelesTriangleCorner
           cornerSize={cornerSize}
           borderWidth={borderWidth}
+          strokeColor="rgba(255, 255, 255, 0.5)"
         />
       </div>
     </li>
