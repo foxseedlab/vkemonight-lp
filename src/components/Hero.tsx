@@ -88,7 +88,7 @@ function ScrollDownAnimation() {
   return (
     <div className="absolute bottom-72 right-18 z-30">
       <div className="scroll-down flex flex-col items-center relative pt-[5.5rem]">
-        <div className="mt-3 arrow-down block w-[0.6rem]" />
+        <div className="mt-3 arrow-down block w-[0.7rem]" />
         <div className="text-white text-sm font-medium tracking-[0.1em] origin-center rotate-90 whitespace-nowrap absolute -right-20 top-12">
           SCROLL DOWN
         </div>
