@@ -61,7 +61,9 @@ export default function Menu({ assets }: MenuProps) {
   }, [y]);
 
   const isTimeScheduleActive = activeSection === 'timeschedule';
-  const textColorClass = isTimeScheduleActive ? 'text-black' : 'text-primary';
+  const textColorClass = isTimeScheduleActive
+    ? 'text-neutral-900'
+    : 'text-primary';
 
   return (
     <>
@@ -112,7 +114,7 @@ function DesktopMenu({
             <a
               href="#hero"
               tabIndex={activeSection === '' ? -1 : undefined}
-              className="block h-full"
+              className="pr-4 block h-full"
             >
               <motion.img
                 initial={{ opacity: 0 }}
@@ -238,7 +240,7 @@ function MobileMenu({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="fixed top-0 right-0 h-screen w-[80%] max-w-[300px] z-30 lg:hidden bg-white shadow-lg flex flex-col"
+              className="fixed top-0 right-0 h-screen w-[80%] max-w-[300px] z-30 lg:hidden bg-secondary-background shadow-lg flex flex-col"
               aria-labelledby="mobile-menu-title"
             >
               <div className="flex-grow flex items-center justify-center">

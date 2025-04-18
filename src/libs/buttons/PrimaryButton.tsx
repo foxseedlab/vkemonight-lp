@@ -11,7 +11,7 @@ export default function PrimaryButton({ label, href, className = '' }: Props) {
     <a
       href={href}
       className={`
-        inline-block relative px-20 py-2 text-2xl text-primary tracking-widest font-medium
+        inline-block relative px-20 py-2 text-2xl text-primary text-center tracking-widest font-medium
         bg-primary-button/50 border-2 border-primary
         transition-all duration-300 ease-in-out
         hover:bg-primary-button/70 hover:scale-105 hover:shadow-lg

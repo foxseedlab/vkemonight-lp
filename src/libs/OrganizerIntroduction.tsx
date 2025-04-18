@@ -3,11 +3,14 @@ import { useMeasure } from 'react-use';
 import { BeveledRectangleBox, BeveledRectangleFigure } from './Box';
 import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
+import Social from './Social';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
-import type { Person, PositionType } from './stores/people';
+import type { Assets } from './stores/assets';
+import type { Person, PositionType, SocialLink } from './stores/people';
 
 type Props = {
   organizers: Person[];
+  assets: Assets;
 };
 
 const containerVariants = {
@@ -31,7 +34,7 @@ const itemVariants = {
   },
 };
 
-export default function OrganizerIntroductions({ organizers }: Props) {
+export default function OrganizerIntroductions({ organizers, assets }: Props) {
   return (
     <motion.ul
       className="px-8 md:px-16 w-full flex flex-col items-end gap-12"
@@ -49,8 +52,10 @@ export default function OrganizerIntroductions({ organizers }: Props) {
           <OrganizerIntroduction
             name={organizer.name}
             positions={organizer.positions}
+            socials={organizer.social_links}
             description={organizer.introduction}
             avatarUrl={organizer.avatar.url}
+            assets={assets}
           />
         </motion.li>
       ))}
@@ -61,13 +66,17 @@ export default function OrganizerIntroductions({ organizers }: Props) {
 function OrganizerIntroduction({
   name,
   positions,
+  socials,
   description,
   avatarUrl,
+  assets,
 }: {
   name: string;
   positions: PositionType[];
+  socials: SocialLink[];
   description: string;
   avatarUrl: string;
+  assets: Assets;
 }) {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const cornerSize = 24;
@@ -87,15 +96,16 @@ function OrganizerIntroduction({
             className="w-32 h-32"
           />
 
-          <div className="pt-10 px-6">
+          <div className="pt-10 pl-5 w-[calc(100%-8rem)]">
             <h2 className="mb-1 text-lg font-medium">{name}</h2>
-            <Position positions={positions} />
+            <Social socials={socials} assets={assets} />
+            <Position className="mt-[0.6rem]" positions={positions} />
           </div>
         </div>
 
         {/* 本文 */}
         <div className="-mt-6 p-6 pb-4 w-full">
-          <ParagraphWithLineBreak text={description} className="mt-4" />
+          <ParagraphWithLineBreak text={description} />
         </div>
       </div>
 

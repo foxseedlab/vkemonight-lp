@@ -4,6 +4,8 @@ import PrimaryButton from '@/libs/buttons/PrimaryButton';
 import Header1 from '@/libs/headers/Header1';
 import Header2 from '@/libs/headers/Header2';
 import Paragraph from '@/libs/headers/Paragraph';
+
+const xUrl = import.meta.env.PUBLIC_X_URL;
 ---
 
 <section class="mt-96 md:mt-72" id="contact">
@@ -14,7 +16,7 @@ import Paragraph from '@/libs/headers/Paragraph';
 
     <PrimaryButton
       label="公式Xに移動する"
-      href="#"
+      href={xUrl}
     />
 
     <Paragraph className="mt-4">

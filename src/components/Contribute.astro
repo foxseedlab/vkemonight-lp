@@ -13,6 +13,7 @@ type Props = {
 };
 
 const { featuredImage } = Astro.props;
+const kofiUrl = import.meta.env.PUBLIC_KOFI_URL;
 ---
 
 <section class="mt-96 md:mt-72" id="contribute">
@@ -53,7 +54,7 @@ const { featuredImage } = Astro.props;
 
         <PrimaryButton
           label="Ko-fi で支援する"
-          href="#"
+          href={kofiUrl}
           className="mt-16"
         />
       </SectionBody>

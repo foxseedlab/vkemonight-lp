@@ -7,21 +7,21 @@ type Props = {
 
 export default function Position({ positions, className = '' }: Props) {
   const bgColors = new Map<PositionType, string>([
-    ['主催', 'bg-red-500'],
-    ['DJ', 'bg-purple-500'],
-    ['MC', 'bg-orange-500'],
-    ['照明', 'bg-yellow-500'],
-    ['バーテンダー', 'bg-neutral-500'],
-    ['SNS運用', 'bg-blue-500'],
-    ['ロゴ制作', 'bg-green-500'],
-    ['ページ制作', 'bg-pink-500'],
+    ['主催', 'bg-red-700'],
+    ['DJ', 'bg-violet-800'],
+    ['MC', 'bg-neutral-800'],
+    ['照明', 'bg-neutral-800'],
+    ['バーテンダー', 'bg-neutral-800'],
+    ['SNS運用', 'bg-neutral-800'],
+    ['ロゴ制作', 'bg-neutral-800'],
+    ['ページ制作', 'bg-neutral-800'],
   ]);
 
   return (
     <div className={`w-full flex gap-2 ${className}`}>
       {positions.map((position) => (
         <p
-          className={`px-4 font-medium tracking-wide leading-6 ${bgColors.get(position)}`}
+          className={`px-3 font-medium whitespace-nowrap tracking-wide leading-6 ${bgColors.get(position)}`}
           key={position}
         >
           {position}
