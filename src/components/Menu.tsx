@@ -6,141 +6,76 @@ type Props = {
   assets: Assets;
 };
 
+const sections = [
+  { id: 'about', label: 'about', offset: 300 },
+  { id: 'guests', label: 'guests', offset: 300 },
+  { id: 'timeschedule', label: 'timeschedule', offset: 300 },
+  { id: 'contribute', label: 'contribute', offset: 300 },
+  { id: 'staffs', label: 'staffs', offset: 300 },
+  { id: 'contact', label: 'contact', offset: 300 },
+];
+
 export default function Menu({ assets }: Props) {
-  // ウィンドウ全体のスクロール位置を追跡
   const { y } = useWindowScroll();
-
-  const [isHero, setIsHero] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('');
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  // 各セクションへの参照を作成
-  const aboutRef = useRef<HTMLElement | null>(null);
-  const guestsRef = useRef<HTMLElement | null>(null);
-  const timescheduleRef = useRef<HTMLElement | null>(null);
-  const contributeRef = useRef<HTMLElement | null>(null);
-  const staffsRef = useRef<HTMLElement | null>(null);
-  const contactRef = useRef<HTMLElement | null>(null);
-
-  // DOMが読み込まれた後に各セクションの要素を取得
   useEffect(() => {
-    aboutRef.current = document.getElementById('about');
-    guestsRef.current = document.getElementById('guests');
-    timescheduleRef.current = document.getElementById('timeschedule');
-    contributeRef.current = document.getElementById('contribute');
-    staffsRef.current = document.getElementById('staffs');
-    contactRef.current = document.getElementById('contact');
+    for (const { id } of sections) {
+      sectionRefs.current[id] = document.getElementById(id);
+    }
   }, []);
 
-  // スクロール位置に基づいて現在のセクションを更新
   useEffect(() => {
-    // スクロール位置が取得できない場合は処理しない
-    if (y === undefined) return;
+    if (y === undefined) {
+      return;
+    }
 
-    // デフォルトではアクティブなセクションなし
-    setActiveSection('');
-    setIsHero(true);
+    let currentActiveSection = '';
 
-    // 各セクションをチェックし、表示されていれば対応するセクションをアクティブに設定
-    if (aboutRef.current && y >= aboutRef.current.offsetTop - 300) {
-      setActiveSection('about');
-      setIsHero(false);
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      const element = sectionRefs.current[section.id];
+
+      if (element && y >= element.offsetTop - section.offset) {
+        currentActiveSection = section.id;
+        break;
+      }
     }
-    if (guestsRef.current && y >= guestsRef.current.offsetTop - 300) {
-      setActiveSection('guests');
-      setIsHero(false);
-    }
-    if (timescheduleRef.current && y >= timescheduleRef.current.offsetTop) {
-      setActiveSection('timeschedule');
-      setIsHero(false);
-    }
-    if (contributeRef.current && y >= contributeRef.current.offsetTop - 300) {
-      setActiveSection('contribute');
-      setIsHero(false);
-    }
-    if (staffsRef.current && y >= staffsRef.current.offsetTop - 300) {
-      setActiveSection('staffs');
-      setIsHero(false);
-    }
-    if (contactRef.current && y >= contactRef.current.offsetTop - 300) {
-      setActiveSection('contact');
-      setIsHero(false);
-    }
+
+    setActiveSection(currentActiveSection);
   }, [y]);
 
+  const isTimeScheduleActive = activeSection === 'timeschedule';
+  const textColorClass = isTimeScheduleActive ? 'text-black' : 'text-primary';
+
   return (
-    <section className="mx-auto flex flex-col items-center fixed top-8 inset-x-0 z-40">
+    <section className="fixed inset-x-0 top-8 z-40 mx-auto flex flex-col items-center">
       <menu
-        className="px-8 text-center text-primary tracking-wider leading-[3.5rem] font-display
-        bg-primary/30 border-1 border-primary/20 backdrop-blur-lg rounded-full
-      "
+        className="px-8 text-primary leading-[3.5rem] tracking-wider font-display
+        rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
       >
         <ul className="flex flex-row md:gap-4 xl:gap-8">
-          {!isHero && (
+          {activeSection !== '' && (
             <li className="h-[3.5rem]">
               <a href="#hero">
                 <img
                   src={assets.logos.black.url}
-                  alt="バーチャルケモナイト"
-                  className="py-2 h-full"
+                  alt="バーチャルケモナイト ロゴ"
+                  className="h-full py-2"
                 />
               </a>
             </li>
           )}
 
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#about">about</a>
-          </li>
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#guests">guests</a>
-          </li>
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#timeschedule">timeschedule</a>
-          </li>
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#contribute">contribute</a>
-          </li>
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#staffs">staffs</a>
-          </li>
-          <li
-            className={
-              activeSection === 'timeschedule'
-                ? 'text-black transition-colors duration-300 ease-in-out'
-                : 'text-primary transition-colors duration-300 ease-in-out'
-            }
-          >
-            <a href="#contact">contact</a>
-          </li>
+          {sections.map(({ id, label }) => (
+            <li
+              key={id}
+              className={`${textColorClass} outlined-text-shadow-2xs text-shadow-current transition-colors duration-300 ease-in-out`}
+            >
+              <a href={`#${id}`}>{label}</a>
+            </li>
+          ))}
         </ul>
       </menu>
     </section>

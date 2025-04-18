@@ -15,12 +15,12 @@ type Props = {
 const { djSchedules, featuredImage } = Astro.props;
 ---
 
-<section class="mt-96 md:mt-72" id="timeschedule">
+<section class="mt-96 md:mt-72">
   <div class="-mb-1 w-full text-secondary-background">
     <Wave />
   </div>
 
-  <div class="py-48 md:py-32 text-secondary bg-secondary-background">
+  <div class="py-48 md:py-32 text-secondary bg-secondary-background" id="timeschedule">
     <Header1 title="TIME<br>SCHEDULE" titleJa="タイムスケジュール" className="mb-16" small client:load />
 
     <div class="flex flex-col md:flex-row">
