@@ -3,11 +3,14 @@ import { useMeasure } from 'react-use';
 import { BeveledRectangleBox, BeveledRectangleFigure } from './Box';
 import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
+import Social from './Social';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
-import type { Person, PositionType } from './stores/people';
+import type { Assets } from './stores/assets';
+import type { Person, PositionType, SocialLink } from './stores/people';
 
 type Props = {
   staffs: Person[];
+  assets: Assets;
 };
 
 const containerVariants = {
@@ -31,7 +34,7 @@ const itemVariants = {
   },
 };
 
-export default function StaffIntroductions({ staffs }: Props) {
+export default function StaffIntroductions({ staffs, assets }: Props) {
   return (
     <motion.ul
       className="mt-12 px-8 md:px-16 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
@@ -49,8 +52,10 @@ export default function StaffIntroductions({ staffs }: Props) {
           <StaffIntroduction
             name={staff.name}
             positions={staff.positions}
+            socials={staff.social_links}
             description={staff.introduction}
             avatarUrl={staff.avatar.url}
+            assets={assets}
           />
         </motion.li>
       ))}
@@ -61,13 +66,17 @@ export default function StaffIntroductions({ staffs }: Props) {
 function StaffIntroduction({
   name,
   positions,
+  socials,
   description,
   avatarUrl,
+  assets,
 }: {
   name: string;
   positions: PositionType[];
+  socials: SocialLink[];
   description: string;
   avatarUrl: string;
+  assets: Assets;
 }) {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const cornerSize = 24;
@@ -90,7 +99,8 @@ function StaffIntroduction({
 
             <div className="pt-10 pl-5 w-[calc(100%-8rem)]">
               <h2 className="mb-1 text-lg font-medium">{name}</h2>
-              <Position positions={positions} />
+              <Social socials={socials} assets={assets} />
+              <Position className="mt-[0.6rem]" positions={positions} />
             </div>
           </div>
 

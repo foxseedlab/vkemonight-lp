@@ -3,12 +3,15 @@ import { useMeasure } from 'react-use';
 import { BeveledRectangleBox } from './Box';
 import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
+import Social from './Social';
 import Header2 from './headers/Header2';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
-import type { Person, PositionType } from './stores/people';
+import type { Assets } from './stores/assets';
+import type { Person, PositionType, SocialLink } from './stores/people';
 
 type Props = {
   guests: Person[];
+  assets: Assets;
 };
 
 const containerVariants = {
@@ -33,7 +36,7 @@ const itemVariants = {
   },
 };
 
-export default function SpecialGuestIntroductions({ guests }: Props) {
+export default function SpecialGuestIntroductions({ guests, assets }: Props) {
   return (
     <motion.ul
       className="pt-8 px-8 md:px-16 w-full flex flex-col gap-8"
@@ -53,7 +56,9 @@ export default function SpecialGuestIntroductions({ guests }: Props) {
             stillPhotographyUrl={guest.still_photography!.url}
             name={guest.name}
             positions={guest.positions}
+            socials={guest.social_links}
             description={guest.introduction}
+            assets={assets}
           />
         </motion.li>
       ))}
@@ -65,12 +70,16 @@ function SpecialGuestIntroduction({
   stillPhotographyUrl,
   name,
   positions,
+  socials,
   description,
+  assets,
 }: {
   stillPhotographyUrl: string;
   name: string;
   positions: PositionType[];
+  socials: SocialLink[];
   description: string;
+  assets: Assets;
 }) {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const cornerSize = 24;
@@ -95,8 +104,9 @@ function SpecialGuestIntroduction({
           className="p-6 pt-[32rem] md:p-10 md:pt-10 md:pl-[calc(28rem+2.5rem)] xl:pl-[calc(32rem+2.5rem)]
           w-full md:min-h-[32rem] xl:min-h-[40rem]"
         >
-          <Header2 title={name} className="mb-2" />
-          <Position positions={positions} />
+          <Header2 title={name} className="mb-1" />
+          <Social socials={socials} assets={assets} />
+          <Position className="mt-4" positions={positions} />
           <ParagraphWithLineBreak text={description} className="mt-4" />
         </div>
       </div>

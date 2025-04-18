@@ -11,16 +11,18 @@ export type Person = {
   still_photography?: Image;
   introduction: string;
   positions: PositionType[];
-  social_links: {
-    fieldId: string;
-    type: SocialLinkType[];
-    url: string;
-  }[];
+  social_links: SocialLink[];
   is_organizer: boolean;
   is_staff: boolean;
   is_special_guest: boolean;
   is_guest: boolean;
   is_performer: boolean;
+};
+
+export type SocialLink = {
+  fieldId: string;
+  type: SocialLinkType[];
+  url: string;
 };
 
 export type PositionType =
