@@ -87,7 +87,7 @@ function OrganizerIntroduction({
             className="w-32 h-32"
           />
 
-          <div className="pt-10 px-6">
+          <div className="pt-10 pl-5 w-[calc(100%-8rem)]">
             <h2 className="mb-1 text-lg font-medium">{name}</h2>
             <Position positions={positions} />
           </div>
@@ -95,7 +95,7 @@ function OrganizerIntroduction({
 
         {/* 本文 */}
         <div className="-mt-6 p-6 pb-4 w-full">
-          <ParagraphWithLineBreak text={description} className="mt-4" />
+          <ParagraphWithLineBreak text={description} />
         </div>
       </div>
 
