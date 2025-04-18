@@ -33,7 +33,7 @@ const itemVariants = {
   },
 };
 
-export default function GuestIntroductions({ guests }: Props) {
+export default function SpecialGuestIntroductions({ guests }: Props) {
   return (
     <motion.ul
       className="pt-8 px-8 md:px-16 w-full flex flex-col gap-8"
@@ -48,7 +48,7 @@ export default function GuestIntroductions({ guests }: Props) {
           variants={itemVariants}
           className="mt-[6rem] w-full relative"
         >
-          <GuestIntroduction
+          <SpecialGuestIntroduction
             // biome-ignore lint/style/noNonNullAssertion: <explanation>
             stillPhotographyUrl={guest.still_photography!.url}
             name={guest.name}
@@ -61,7 +61,7 @@ export default function GuestIntroductions({ guests }: Props) {
   );
 }
 
-function GuestIntroduction({
+function SpecialGuestIntroduction({
   stillPhotographyUrl,
   name,
   positions,

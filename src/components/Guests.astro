@@ -1,18 +1,19 @@
 ---
-import GuestIntroductions from '@/libs/GuestIntroduction';
+import SpecialGuestIntroductions from '@/libs/SpecialGuestIntroduction';
 import Header1 from '@/libs/headers/Header1';
 
 import type { Person } from '@/libs/stores/people';
 
 type Props = {
+  specialGuests: Person[];
   guests: Person[];
 };
 
-const { guests } = Astro.props;
+const { specialGuests, guests } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72" id="guests">
   <Header1 title="GUESTS" titleJa="ゲスト" className="mb-16" right client:load />
 
-  <GuestIntroductions guests={guests} client:load />
+  <SpecialGuestIntroductions guests={specialGuests} client:load />
 </section>
