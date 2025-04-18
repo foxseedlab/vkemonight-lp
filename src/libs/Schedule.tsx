@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { BeveledRectangleFigure } from './Box';
 import type { Schedule as ScheduleStore } from './stores/schedules';
 
@@ -61,22 +63,47 @@ function DJSchedule({
   title,
   djSchedules,
 }: { startAtStr: string; title: string; djSchedules: ScheduleStore[] }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <li className="bg-primary">
       <ScheduleTimeAndTitle startAtStr={startAtStr} title={title} />
 
-      <ul className="mb-5 flex flex-col gap-4">
+      <motion.ul
+        ref={ref}
+        className="mb-5 flex flex-col gap-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'show' : 'hidden'}
+      >
         {djSchedules.map((djSchedule) => (
-          <DJ
-            startAtStr={djSchedule.start_at}
-            endAtStr={djSchedule.end_at}
-            name={djSchedule.performer.name}
-            description={djSchedule.description}
-            avatarUrl={djSchedule.performer.avatar.url}
-            key={djSchedule.id}
-          />
+          <motion.li key={djSchedule.id} variants={itemVariants}>
+            <DJ
+              startAtStr={djSchedule.start_at}
+              endAtStr={djSchedule.end_at}
+              name={djSchedule.performer.name}
+              description={djSchedule.description}
+              avatarUrl={djSchedule.performer.avatar.url}
+            />
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </li>
   );
 }
@@ -100,7 +127,7 @@ function DJ({
   const endAtHourAndMinute = dayjs(endAtStr).tz('Asia/Tokyo').format('HH:mm');
 
   return (
-    <li className="pl-6 flex flex-row">
+    <div className="pl-6 flex flex-row">
       <div className="w-16 h-auto flex flex-col items-center justify-center">
         <BeveledRectangleFigure
           imgSrc={avatarUrl}
@@ -124,7 +151,7 @@ function DJ({
           }}
         />
       </div>
-    </li>
+    </div>
   );
 }
 

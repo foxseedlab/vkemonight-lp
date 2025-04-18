@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
 
+import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -9,6 +11,33 @@ type Props = {
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
 
+  const logoVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, 0.01, 0.05, 0.95],
+        delay: 1.0,
+      },
+    },
+  };
+
+  const dateVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, 0.01, 0.05, 0.95],
+        delay: 2.5,
+      },
+    },
+  };
+
   return (
     <section
       className="w-full h-[calc(100svh+200px)] text-center mask-contain mask-repeat-x flex flex-col items-center relative"
@@ -17,26 +46,63 @@ export default function Hero({ assets }: Props) {
       }}
     >
       <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute z-10">
-        <h1 className="w-3/4 md:w-2/3 xl:w-1/2">
+        <motion.h1
+          className="w-3/4 md:w-2/3 xl:w-1/2"
+          variants={logoVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <img
             src={assets.logos.white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
           />
-        </h1>
-        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl font-bold tracking-widest">
-          バーチャルからお送りする夜のDJフェス | VRChat
-        </div>
+        </motion.h1>
+
+        <TextStaggeredFade
+          text="バーチャルからお送りする夜のDJフェス | VRChat"
+          className="mt-4 md:mt-8 text-sm md:text-2xl font-bold tracking-widest"
+          initialDelay={1.5}
+        />
+
+        <motion.div
+          className="mt-4 md:mt-8 md:text-2xl font-display flex flex-row gap-4 md:gap-10"
+          variants={dateVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div>
+            <span className="outlined-text-shadow-1dot5xs text-shadow-current">
+              2025.
+            </span>
+            <span className="text-xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              7.12
+            </span>
+            <span>sat</span>
+          </div>
+
+          <div>
+            <span className="text-xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              20:00
+            </span>
+            <span className="px-2">~</span>
+            <span className="text-xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              04:15
+            </span>
+          </div>
+        </motion.div>
       </div>
 
       <figure className="w-full h-full">
         <img
           src={assets.featured_images.hero.url}
-          alt="ヒーロ"
+          alt="ヒーロー"
           className="w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem]"
         />
       </figure>
+
+      <ScrollDownAnimation />
     </section>
   );
 }
@@ -58,4 +124,17 @@ function createMaskImageTag(width: number, height: number): string {
     .replaceAll('\n', '');
 
   return tag;
+}
+
+function ScrollDownAnimation() {
+  return (
+    <div className="absolute bottom-72 right-18 z-30">
+      <div className="scroll-down flex flex-col items-center relative pt-[5.5rem]">
+        <div className="mt-3 arrow-down block w-[0.7rem]" />
+        <div className="text-white text-sm font-medium tracking-[0.1em] origin-center rotate-90 whitespace-nowrap absolute -right-20 top-12">
+          SCROLL DOWN
+        </div>
+      </div>
+    </div>
+  );
 }

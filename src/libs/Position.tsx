@@ -17,10 +17,10 @@ export default function Position({ positions, className = '' }: Props) {
   ]);
 
   return (
-    <div className={`w-full flex gap-3 ${className}`}>
+    <div className={`w-full flex gap-2 ${className}`}>
       {positions.map((position) => (
         <p
-          className={`px-6 font-medium tracking-wide leading-6 ${bgColors.get(position)}`}
+          className={`px-4 font-medium tracking-wide leading-6 ${bgColors.get(position)}`}
           key={position}
         >
           {position}
