@@ -22,7 +22,6 @@ export default function Schedule({ djSchedules }: Props) {
     <ul className="mt-4 w-full tracking-wide flex flex-col gap-4">
       <NormalSchedule startAtStr="19:45" title="開場" />
       <DJSchedule startAtStr="20:00" title="DJ" djSchedules={djSchedules} />
-      <ComingSoonSchedule />
       <NormalSchedule startAtStr="04:00" title="記念撮影" />
       <NormalSchedule startAtStr="04:15" title="イベント終了" />
     </ul>

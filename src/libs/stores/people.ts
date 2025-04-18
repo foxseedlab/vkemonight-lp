@@ -18,6 +18,7 @@ export type Person = {
   }[];
   is_organizer: boolean;
   is_staff: boolean;
+  is_special_guest: boolean;
   is_guest: boolean;
   is_performer: boolean;
 };
@@ -26,6 +27,7 @@ export type PositionType =
   | '主催'
   | 'DJ'
   | 'MC'
+  | '照明'
   | 'バーテンダー'
   | 'SNS運用'
   | 'ロゴ制作'
@@ -50,13 +52,26 @@ export async function fetchPeople(): Promise<Person[]> {
   return res.contents;
 }
 
-export async function fetchGuests(): Promise<Person[]> {
+export async function fetchSpecialGuests(): Promise<Person[]> {
   const client = createCMSClient();
 
   const res = await client.getList<Person>({
     endpoint: 'people',
     queries: {
-      filters: 'is_guest[equals]true',
+      filters: 'is_special_guest[equals]true',
+    },
+  });
+
+  return res.contents;
+}
+
+export async function fetchGuestsWithoutSpecial(): Promise<Person[]> {
+  const client = createCMSClient();
+
+  const res = await client.getList<Person>({
+    endpoint: 'people',
+    queries: {
+      filters: 'is_guest[equals]true[and]is_special_guest[equals]false',
     },
   });
 
