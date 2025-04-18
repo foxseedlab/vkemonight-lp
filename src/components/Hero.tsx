@@ -80,7 +80,7 @@ export default function Hero({ assets }: Props) {
             <span className="text-xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
               7.12
             </span>
-            <span>sat</span>
+            <span className="ml-2">sat</span>
           </div>
 
           <div>
