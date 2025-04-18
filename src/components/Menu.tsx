@@ -52,12 +52,12 @@ export default function Menu({ assets }: Props) {
   return (
     <section className="fixed inset-x-0 top-8 z-40 mx-auto flex flex-col items-center">
       <menu
-        className="px-8 text-primary leading-[3.5rem] tracking-wider font-display
+        className="px-8 h-[3.5rem] text-primary tracking-wider font-display
         rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
       >
-        <ul className="flex flex-row md:gap-4 xl:gap-8">
+        <ul className="h-full flex flex-row md:gap-4 xl:gap-8">
           {activeSection !== '' && (
-            <li className="h-[3.5rem]">
+            <li className="h-full">
               <a href="#hero">
                 <img
                   src={assets.logos.black.url}
@@ -71,9 +71,18 @@ export default function Menu({ assets }: Props) {
           {sections.map(({ id, label }) => (
             <li
               key={id}
-              className={`${textColorClass} outlined-text-shadow-2xs text-shadow-current transition-colors duration-300 ease-in-out`}
+              className={`${textColorClass} outlined-text-shadow-2xs text-shadow-current
+                transition-colors duration-300 ease-in-out
+                relative after:absolute after:bottom-[0.5rem] after:left-0 after:h-[1px] after:w-full
+                after:origin-bottom-right after:scale-x-0 after:bg-current
+                after:transition-transform after:duration-300 after:ease-in-out
+                after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100`}
             >
-              <a href={`#${id}`}>{label}</a>
+              <a href={`#${id}`}>
+                <div className="h-full flex items-center justify-center px-2">
+                  {label}
+                </div>
+              </a>
             </li>
           ))}
         </ul>
