@@ -27,16 +27,20 @@ export default function GuestIntroduction({
     <li className="mt-[6rem] w-full relative">
       <div ref={ref} className="w-full h-full relative z-10">
         <figure
-          className="w-full md:w-[20rem] h-[36rem] md:h-[calc(100%+6rem)]
-          absolute -top-[6rem] bottom-auto md:top-auto md:bottom-0"
+          className="w-full md:w-[28rem] xl:w-[32rem] h-[36rem] md:h-[calc(100%+6rem)]
+          absolute -top-[6rem] bottom-auto md:top-auto md:bottom-0 flex flex-col items-center"
         >
-          <img src={stillPhotographyUrl} alt={name} className="h-full" />
+          <img
+            src={stillPhotographyUrl}
+            alt={name}
+            className="h-full object-cover"
+          />
         </figure>
 
         {/* 本文 */}
         <div
-          className="mt-[32rem] md:mt-0 md:ml-[20rem] xl:ml-[20rem]
-          w-full md:w-[calc(100%-20rem)] xl:w-[calc(100%-20rem)] p-6 md:p-10"
+          className="p-6 pt-[32rem] md:p-10 md:pt-10 md:pl-[calc(28rem+2.5rem)] xl:pl-[calc(32rem+2.5rem)]
+          w-full md:min-h-[32rem] xl:min-h-[40rem]"
         >
           <Header2 title={name} className="mb-2" />
           <Position positions={positions} />
