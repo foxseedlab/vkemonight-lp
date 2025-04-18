@@ -11,30 +11,29 @@ type Props = {
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
 
-  // アニメーション定義
   const logoVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 }, // 初期状態: 透明、下に50px、少し小さい
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, 0.01, 0.05, 0.95], // 3番目の値を修正 (-0.05 -> 0.05)
-        delay: 1.0, // 0秒から1.5秒に変更 (全体遅延)
+        ease: [0.6, 0.01, 0.05, 0.95],
+        delay: 1.0,
       },
     },
   };
 
   const dateVariants = {
-    hidden: { opacity: 0, y: 20 }, // 初期状態: 透明、下に20px
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, 0.01, 0.05, 0.95], // 3番目の値を修正 (-0.05 -> 0.05)
-        delay: 2.5, // 1.2秒から2.7秒に変更 (全体遅延+元の遅延)
+        ease: [0.6, 0.01, 0.05, 0.95],
+        delay: 2.5,
       },
     },
   };
