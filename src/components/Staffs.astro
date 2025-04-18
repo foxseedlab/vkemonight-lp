@@ -14,7 +14,7 @@ const { organizers, staffs } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72" id="staffs">
-  <Header1 title="STAFFS" titleJa="スタッフ" className="mb-16" />
+  <Header1 title="STAFFS" titleJa="スタッフ" className="mb-16" client:load />
 
   <ul class="px-8 md:px-16 w-full flex flex-col items-end gap-12">
     {organizers.map((organizer) => (

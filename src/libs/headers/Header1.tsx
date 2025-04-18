@@ -1,3 +1,5 @@
+import { TextFade } from '../animations/TextFade';
+
 type Props = {
   title: string;
   titleJa: string;
@@ -18,20 +20,22 @@ export default function Header1({
     : 'text-8xl md:text-[12rem] xl:text-[14rem]';
 
   return (
-    <h1
-      className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}
-    >
-      <div
+    <h1 className={`pt-18 w-full mix-blend-color-dodge relative ${className}`}>
+      <TextFade
+        direction="up"
         className={
           right
             ? `mr-6 md:mr-12 xl:mr-16 ${displayFontSize}
-            text-right font-display text-header1 tracking-tighter leading-none`
+              text-right font-display text-header1 tracking-tighter leading-none`
             : `ml-6 md:ml-12 xl:ml-16 ${displayFontSize}
-            font-display text-header1 tracking-tighter leading-none`
+              font-display text-header1 tracking-tighter leading-none`
         }
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-        dangerouslySetInnerHTML={{ __html: title }}
-      />
+      >
+        <div
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
+      </TextFade>
 
       <div
         className={
@@ -40,15 +44,17 @@ export default function Header1({
             : 'mt-4 md:mt-8 ml-6 md:ml-12 xl:ml-16 flex flex-row items-center'
         }
       >
-        <div
-          className={
-            right
-              ? 'ml-4 md:ml-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
-              : 'mr-4 md:mr-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 flex-shrink-0'
-          }
-        >
-          {titleJa}
-        </div>
+        <TextFade direction="up">
+          <div
+            className={
+              right
+                ? 'ml-4 md:ml-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 whitespace-nowrap flex-shrink-0'
+                : 'mr-4 md:mr-8 text-xl md:text-2xl xl:text-4xl font-bold text-header1 whitespace-nowrap flex-shrink-0'
+            }
+          >
+            {titleJa}
+          </div>
+        </TextFade>
 
         <HorizontalWave right={right} />
       </div>

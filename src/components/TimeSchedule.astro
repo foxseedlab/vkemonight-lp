@@ -21,7 +21,7 @@ const { djSchedules, featuredImage } = Astro.props;
   </div>
 
   <div class="py-48 md:py-32 text-secondary bg-secondary-background">
-    <Header1 title="TIME<br>SCHEDULE" titleJa="タイムスケジュール" className="mb-16" small />
+    <Header1 title="TIME<br>SCHEDULE" titleJa="タイムスケジュール" className="mb-16" small client:load />
 
     <div class="flex flex-col md:flex-row">
       <div class="mb-20 md:mb-0 px-6 md:px-12 w-full md:w-1/2 flex flex-col items-center">
