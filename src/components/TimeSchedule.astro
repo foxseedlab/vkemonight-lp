@@ -29,7 +29,7 @@ const { djSchedules, featuredImage } = Astro.props;
           現時点の予定です。変更になる場合がございます。
         </div>
 
-        <ScheduleArea djSchedules={djSchedules} />
+        <ScheduleArea djSchedules={djSchedules} client:load />
       </div>
 
       <div class="w-full md:w-1/2">
