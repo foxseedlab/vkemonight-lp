@@ -61,7 +61,9 @@ export default function Menu({ assets }: MenuProps) {
   }, [y]);
 
   const isTimeScheduleActive = activeSection === 'timeschedule';
-  const textColorClass = isTimeScheduleActive ? 'text-black' : 'text-primary';
+  const textColorClass = isTimeScheduleActive
+    ? 'text-neutral-900'
+    : 'text-primary';
 
   return (
     <>
@@ -112,7 +114,7 @@ function DesktopMenu({
             <a
               href="#hero"
               tabIndex={activeSection === '' ? -1 : undefined}
-              className="block h-full"
+              className="pr-4 block h-full"
             >
               <motion.img
                 initial={{ opacity: 0 }}
