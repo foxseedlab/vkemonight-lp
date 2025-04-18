@@ -10,10 +10,11 @@ export default function Position({ positions, className = '' }: Props) {
     ['主催', 'bg-red-500'],
     ['DJ', 'bg-purple-500'],
     ['MC', 'bg-orange-500'],
+    ['照明', 'bg-yellow-500'],
     ['バーテンダー', 'bg-neutral-500'],
     ['SNS運用', 'bg-blue-500'],
     ['ロゴ制作', 'bg-green-500'],
-    ['ページ制作', 'bg-yellow-500'],
+    ['ページ制作', 'bg-pink-500'],
   ]);
 
   return (

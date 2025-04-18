@@ -26,6 +26,7 @@ export type PositionType =
   | '主催'
   | 'DJ'
   | 'MC'
+  | '照明'
   | 'バーテンダー'
   | 'SNS運用'
   | 'ロゴ制作'
