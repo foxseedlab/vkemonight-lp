@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { BeveledRectangleFigure } from './Box';
 import type { Schedule as ScheduleStore } from './stores/schedules';
 
 // タイムゾーン処理のためのプラグインを設定
@@ -100,11 +101,17 @@ function DJ({
 
   return (
     <li className="pl-6 flex flex-row">
-      <figure className="w-16 h-auto flex flex-col items-center justify-center">
-        <div className="w-16 h-16 border-1 border-secondary/30">
-          <img src={avatarUrl} alt={name} className="w-full" />
-        </div>
-      </figure>
+      <div className="w-16 h-auto flex flex-col items-center justify-center">
+        <BeveledRectangleFigure
+          imgSrc={avatarUrl}
+          imgAlt={name}
+          size={16}
+          cornerSize={2}
+          borderWidth={0.5}
+          strokeColor="var(--color-secondary-background)"
+          className="w-16 h-16"
+        />
+      </div>
       <div className="px-6">
         <div className="text-tertiary/50 font-display outlined-text-shadow-2xs text-shadow-tertiary/10">
           {startAtHourAndMinute} - {endAtHourAndMinute}

@@ -32,7 +32,8 @@ export default function FeaturedImage({ image, right }: FeaturedImageProps) {
               : '/featured-image-frame-left.svg'
           }
           alt="縁エフェクト"
-          className="w-full"
+          className="w-full select-none pointer-events-none"
+          draggable="false"
         />
       </div>
     </figure>
@@ -85,7 +86,8 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
               : '/featured-image-frame-left.svg'
           }
           alt="縁エフェクト"
-          className="w-full"
+          className="w-full select-none pointer-events-none"
+          draggable="false"
         />
       </div>
     </figure>
