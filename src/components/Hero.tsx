@@ -44,6 +44,7 @@ export default function Hero({ assets }: Props) {
       style={{
         maskImage: `url("data:image/svg+xml,${createMaskImageTag(width, height)}")`,
       }}
+      id="hero"
     >
       <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute z-10">
         <motion.h1

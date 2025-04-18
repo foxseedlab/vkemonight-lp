@@ -13,13 +13,13 @@
 
 html,
 body {
-  @apply w-[100dvw] h-[100dvh] text-base text-primary overflow-x-hidden relative;
+  @apply w-[100dvw] min-h-[100dvh] text-base text-primary overflow-x-hidden scroll-smooth relative;
 }
 
 html::after,
 body::after {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100lvw;
@@ -36,7 +36,7 @@ body::after {
 html::before,
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100lvw;
