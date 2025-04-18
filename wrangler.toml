@@ -4,6 +4,10 @@ compatibility_date = "2025-04-06"
 
 [vars]
 NODE_VERSION = "22.14.0"
+PUBLIC_X_URL = "https://x.com/KEMO_INTHE_DARK"
+PUBLIC_KOFI_URL = "https://ko-fi.com/virtualkemonight/"
 
 [env.production.vars]
 NODE_VERSION = "22.14.0"
+PUBLIC_X_URL = "https://x.com/KEMO_INTHE_DARK"
+PUBLIC_KOFI_URL = "https://ko-fi.com/virtualkemonight/"
