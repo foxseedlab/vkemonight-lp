@@ -81,6 +81,14 @@ body::before {
     0 var(--tw-text-shadow-color);
 }
 
+.md\:outlined-text-shadow-md {
+  @media (width >= 48rem /* 768px */) {
+    text-shadow: -1px -1px 0 var(--tw-text-shadow-color), 1px -1px 0
+      var(--tw-text-shadow-color), -1px 1px 0 var(--tw-text-shadow-color), 1px
+      1px 0 var(--tw-text-shadow-color);
+  }
+}
+
 .outlined-text-shadow-lg {
   text-shadow:
     -2px -2px 0 var(--tw-text-shadow-color), 2px -2px 0 var(

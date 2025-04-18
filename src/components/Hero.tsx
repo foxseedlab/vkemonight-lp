@@ -25,15 +25,37 @@ export default function Hero({ assets }: Props) {
             draggable="false"
           />
         </h1>
-        <div className="mt-6 md:mt-10 xl:mt-16 md:text-2xl font-bold tracking-widest">
+        <div className="mt-4 md:mt-8 md:text-2xl font-bold tracking-widest">
           バーチャルからお送りする夜のDJフェス | VRChat
+        </div>
+
+        <div className="mt-4 md:mt-8 md:text-2xl font-display flex flex-row gap-10">
+          <div>
+            <span className="outlined-text-shadow-1dot5xs text-shadow-current">
+              2025.
+            </span>
+            <span className="text-2xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              7.12
+            </span>
+            <span>sat</span>
+          </div>
+
+          <div>
+            <span className="text-2xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              20:00
+            </span>
+            <span className="px-2">~</span>
+            <span className="text-2xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
+              04:15
+            </span>
+          </div>
         </div>
       </div>
 
       <figure className="w-full h-full">
         <img
           src={assets.featured_images.hero.url}
-          alt="ヒーロ"
+          alt="ヒーロー"
           className="w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem]"
         />
       </figure>
