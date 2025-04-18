@@ -1,4 +1,5 @@
 ---
+import GuestIntroductions from '@/libs/GuestIntroduction';
 import SpecialGuestIntroductions from '@/libs/SpecialGuestIntroduction';
 import Header1 from '@/libs/headers/Header1';
 
@@ -16,4 +17,6 @@ const { specialGuests, guests } = Astro.props;
   <Header1 title="GUESTS" titleJa="ゲスト" className="mb-16" right client:load />
 
   <SpecialGuestIntroductions guests={specialGuests} client:load />
+
+  <GuestIntroductions guests={guests} client:load />
 </section>
