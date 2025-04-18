@@ -93,12 +93,12 @@ function DesktopMenu({
   textColorClass: string;
 }) {
   return (
-    <section className="fixed inset-x-0 top-8 z-40 mx-auto hidden md:flex flex-col items-center">
+    <section className="fixed inset-x-0 top-8 z-40 mx-auto hidden lg:flex flex-col items-center">
       <menu
         className="px-8 h-[3.5rem] text-primary tracking-wider font-display
         rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
       >
-        <ul className="h-full flex flex-row md:gap-4 xl:gap-8">
+        <ul className="h-full flex flex-row lg:gap-3 xl:gap-8">
           <motion.li
             initial={{ width: 0 }}
             animate={{
@@ -184,11 +184,11 @@ function MobileMenu({
 
   return (
     <>
-      <header className="fixed inset-x-0 top-2 z-40 flex md:hidden h-[50px] items-center justify-end px-4">
+      <header className="fixed inset-x-0 top-2 z-40 flex lg:hidden h-[50px] items-center justify-end px-4">
         <button
           type="button"
           onClick={handleMenuToggle}
-          className="hamburger relative z-40 w-10 h-[50px] bg-transparent border-none cursor-pointer md:hidden"
+          className="hamburger relative z-40 w-10 h-[50px] bg-transparent border-none cursor-pointer lg:hidden"
           aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -228,7 +228,7 @@ function MobileMenu({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="fixed inset-0 z-30 bg-black/30 md:hidden"
+              className="fixed inset-0 z-30 bg-black/30 lg:hidden"
               onClick={handleMenuToggle}
               aria-hidden="true"
             />
@@ -238,7 +238,7 @@ function MobileMenu({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="fixed top-0 right-0 h-screen w-[80%] max-w-[300px] z-30 md:hidden bg-white shadow-lg flex flex-col"
+              className="fixed top-0 right-0 h-screen w-[80%] max-w-[300px] z-30 lg:hidden bg-white shadow-lg flex flex-col"
               aria-labelledby="mobile-menu-title"
             >
               <div className="flex-grow flex items-center justify-center">
