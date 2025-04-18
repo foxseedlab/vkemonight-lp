@@ -37,6 +37,7 @@ export type SocialLinkType =
   | 'X'
   | 'Bluesky'
   | 'Facebook'
+  | 'Instagram'
   | 'YouTube'
   | 'Mixcloud'
   | 'VRChat'

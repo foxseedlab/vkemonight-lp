@@ -6,6 +6,7 @@ export type Assets = {
   publishedAt: string;
   revisedAt: string;
   favicon: Image;
+  ogp: Image;
   featured_images: {
     fieldId: string;
     hero: Image;
@@ -22,6 +23,7 @@ export type Assets = {
     fieldId: string;
     twitter: Image;
     bluesky: Image;
+    instagram: Image;
     facebook: Image;
     youtube: Image;
     mixcloud: Image;
