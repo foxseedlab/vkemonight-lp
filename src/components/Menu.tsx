@@ -262,11 +262,15 @@ function MobileMenu({
                   </li>
 
                   {sections.map(({ id, label }) => (
-                    <li key={id}>
+                    <li key={id} className="relative">
                       <a
                         href={`#${id}`}
                         onClick={handleMobileLinkClick}
-                        className="block px-3 py-2 text-xl font-display outlined-text-shadow-xs text-shadow-current text-neutral-900 hover:text-primary transition-colors"
+                        className="block px-3 py-2 text-xl font-display outlined-text-shadow-xs text-shadow-current text-neutral-900 transition-colors
+                          relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full
+                          after:origin-bottom-right after:scale-x-0 after:bg-current
+                          after:transition-transform after:duration-300 after:ease-in-out
+                          after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100"
                         aria-current={activeSection === id ? 'page' : undefined}
                       >
                         {label}
