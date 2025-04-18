@@ -1,13 +1,15 @@
 import type { Assets } from '@/libs/stores/assets';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useWindowScroll } from 'react-use';
 
-type Props = {
-  assets: Assets;
+type Section = {
+  id: string;
+  label: string;
+  offset: number;
 };
 
-const sections = [
+const SECTIONS: Section[] = [
   { id: 'about', label: 'about', offset: 300 },
   { id: 'guests', label: 'guests', offset: 300 },
   { id: 'timeschedule', label: 'timeschedule', offset: 300 },
@@ -16,14 +18,17 @@ const sections = [
   { id: 'contact', label: 'contact', offset: 300 },
 ];
 
-export default function Menu({ assets }: Props) {
+type MenuProps = {
+  assets: Assets;
+};
+
+export default function Menu({ assets }: MenuProps) {
   const { y } = useWindowScroll();
   const [activeSection, setActiveSection] = useState<string>('');
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    for (const { id } of sections) {
+    for (const { id } of SECTIONS) {
       sectionRefs.current[id] = document.getElementById(id);
     }
   }, []);
@@ -34,19 +39,137 @@ export default function Menu({ assets }: Props) {
     }
 
     let currentActiveSection = '';
+    const heroElement = document.getElementById('hero');
+    const heroOffsetTop = heroElement ? heroElement.offsetTop : 0;
+    const heroOffsetTopWithScroll = heroOffsetTop + 100;
 
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const section = sections[i];
-      const element = sectionRefs.current[section.id];
+    if (y < heroOffsetTopWithScroll) {
+      currentActiveSection = '';
+    } else {
+      for (let i = SECTIONS.length - 1; i >= 0; i--) {
+        const section = SECTIONS[i];
+        const element = sectionRefs.current[section.id];
 
-      if (element && y >= element.offsetTop - section.offset) {
-        currentActiveSection = section.id;
-        break;
+        if (element && y >= element.offsetTop - section.offset) {
+          currentActiveSection = section.id;
+          break;
+        }
       }
     }
 
     setActiveSection(currentActiveSection);
   }, [y]);
+
+  const isTimeScheduleActive = activeSection === 'timeschedule';
+  const textColorClass = isTimeScheduleActive ? 'text-black' : 'text-primary';
+
+  return (
+    <>
+      <DesktopMenu
+        assets={assets}
+        sections={SECTIONS}
+        activeSection={activeSection}
+        textColorClass={textColorClass}
+      />
+      <MobileMenu
+        assets={assets}
+        sections={SECTIONS}
+        activeSection={activeSection}
+        isTimeScheduleActive={isTimeScheduleActive}
+      />
+    </>
+  );
+}
+
+function DesktopMenu({
+  assets,
+  sections,
+  activeSection,
+  textColorClass,
+}: {
+  assets: Assets;
+  sections: Section[];
+  activeSection: string;
+  textColorClass: string;
+}) {
+  return (
+    <section className="fixed inset-x-0 top-8 z-40 mx-auto hidden md:flex flex-col items-center">
+      <menu
+        className="px-8 h-[3.5rem] text-primary tracking-wider font-display
+        rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
+      >
+        <ul className="h-full flex flex-row md:gap-4 xl:gap-8">
+          <motion.li
+            initial={{ width: 0 }}
+            animate={{
+              width: activeSection !== '' ? 'auto' : 0,
+            }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="h-full flex-shrink-0 relative"
+            style={{ overflow: 'hidden' }}
+            aria-hidden={activeSection === ''}
+          >
+            <a
+              href="#hero"
+              tabIndex={activeSection === '' ? -1 : undefined}
+              className="block h-full"
+            >
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: activeSection !== '' ? 1 : 0,
+                }}
+                transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
+                src={assets.logos.black.url}
+                alt="バーチャルケモナイト ロゴ"
+                className="h-full py-2 object-cover object-left"
+              />
+            </a>
+          </motion.li>
+
+          {sections.map(({ id, label }) => (
+            <li
+              key={id}
+              className={`${textColorClass} outlined-text-shadow-2xs text-shadow-current
+                transition-colors duration-300 ease-in-out
+                relative after:absolute after:bottom-[0.5rem] after:left-0 after:h-[1px] after:w-full
+                after:origin-bottom-right after:scale-x-0 after:bg-current
+                after:transition-transform after:duration-300 after:ease-in-out
+                after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100`}
+            >
+              <a href={`#${id}`}>
+                <div className="h-full flex items-center justify-center px-2">
+                  {label}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </menu>
+    </section>
+  );
+}
+
+function MobileMenu({
+  assets,
+  sections,
+  activeSection,
+  isTimeScheduleActive,
+}: {
+  assets: Assets;
+  sections: Section[];
+  activeSection: string;
+  isTimeScheduleActive: boolean;
+}) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const handleMobileLinkClick = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -59,79 +182,13 @@ export default function Menu({ assets }: Props) {
     };
   }, [isMenuOpen]);
 
-  const isTimeScheduleActive = activeSection === 'timeschedule';
-  const textColorClass = isTimeScheduleActive ? 'text-black' : 'text-primary';
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleMobileLinkClick = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <>
-      <section className="fixed inset-x-0 top-8 z-40 mx-auto hidden md:flex flex-col items-center">
-        <menu
-          className="px-8 h-[3.5rem] text-primary tracking-wider font-display
-          rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
-        >
-          <ul className="h-full flex flex-row md:gap-4 xl:gap-8">
-            <motion.li
-              initial={{ width: 0 }}
-              animate={{
-                width: activeSection !== '' ? 'auto' : 0,
-              }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="h-full flex-shrink-0 relative"
-              style={{ overflow: 'hidden' }}
-              aria-hidden={activeSection === ''}
-            >
-              <a
-                href="#hero"
-                tabIndex={activeSection === '' ? -1 : undefined}
-                className="block h-full"
-              >
-                <motion.img
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: activeSection !== '' ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
-                  src={assets.logos.black.url}
-                  alt="バーチャルケモナイト ロゴ"
-                  className="h-full py-2 object-cover object-left"
-                />
-              </a>
-            </motion.li>
-
-            {sections.map(({ id, label }) => (
-              <li
-                key={id}
-                className={`${textColorClass} outlined-text-shadow-2xs text-shadow-current
-                  transition-colors duration-300 ease-in-out
-                  relative after:absolute after:bottom-[0.5rem] after:left-0 after:h-[1px] after:w-full
-                  after:origin-bottom-right after:scale-x-0 after:bg-current
-                  after:transition-transform after:duration-300 after:ease-in-out
-                  after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100`}
-              >
-                <a href={`#${id}`}>
-                  <div className="h-full flex items-center justify-center px-2">
-                    {label}
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </menu>
-      </section>
-
       <header className="fixed inset-x-0 top-2 z-40 flex md:hidden h-[50px] items-center justify-end px-4">
         <button
           type="button"
           onClick={handleMenuToggle}
-          className="hamburger relative w-10 bg-transparent border-none cursor-pointer md:hidden"
+          className="hamburger relative z-40 w-10 h-[50px] bg-transparent border-none cursor-pointer md:hidden"
           aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -186,7 +243,7 @@ export default function Menu({ assets }: Props) {
             >
               <div className="flex-grow flex items-center justify-center">
                 <ul className="flex flex-col items-center space-y-6 px-8 py-6">
-                  <li className="mb-10">
+                  <li className="w-full mb-24">
                     {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
                     <a
                       href="#hero"
@@ -199,10 +256,11 @@ export default function Menu({ assets }: Props) {
                       <img
                         src={assets.logos.black.url}
                         alt="バーチャルケモナイト ロゴ"
-                        className="h-full object-contain"
+                        className="w-full"
                       />
                     </a>
                   </li>
+
                   {sections.map(({ id, label }) => (
                     <li key={id}>
                       <a
