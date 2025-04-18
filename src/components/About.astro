@@ -1,5 +1,6 @@
 ---
 import { FeaturedImageSlide } from '@/libs/FeaturedImage';
+import SectionBody from '@/libs/SectionBody';
 import PrimaryButton from '@/libs/buttons/PrimaryButton';
 import Header1 from '@/libs/headers/Header1';
 import Header2 from '@/libs/headers/Header2';
@@ -22,24 +23,26 @@ const { featuredImages } = Astro.props;
       <FeaturedImageSlide images={featuredImages} client:load />
     </div>
 
-    <div class="px-10 md:px-16 mt-20 md:mt-10 w-full md:w-1/2 flex flex-col items-center">
-      <Header2 title="初めてでも楽しめるバーチャルDJイベント" className="mb-10" />
-      <Paragraph>
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-        ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-      </Paragraph>
+    <div class="mt-20 md:mt-10 w-full md:w-1/2">
+      <SectionBody client:load>
+        <Header2 title="初めてでも楽しめるバーチャルDJイベント" className="mb-10" />
+        <Paragraph>
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+          ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
+        </Paragraph>
 
-      <PrimaryButton
-        label="参加する"
-        href="#"
-        className="mt-10"
-      />
+        <PrimaryButton
+          label="参加する"
+          href="#"
+          className="mt-10"
+        />
+      </SectionBody>
     </div>
   </div>
 </section>
