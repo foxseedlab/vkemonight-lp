@@ -1,4 +1,5 @@
 import type { Assets } from '@/libs/stores/assets';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useWindowScroll } from 'react-use';
 
@@ -56,17 +57,33 @@ export default function Menu({ assets }: Props) {
         rounded-full border-1 border-primary/20 bg-primary/30 backdrop-blur-lg"
       >
         <ul className="h-full flex flex-row md:gap-4 xl:gap-8">
-          {activeSection !== '' && (
-            <li className="h-full">
-              <a href="#hero">
-                <img
-                  src={assets.logos.black.url}
-                  alt="バーチャルケモナイト ロゴ"
-                  className="h-full py-2"
-                />
-              </a>
-            </li>
-          )}
+          <motion.li
+            initial={{ width: 0 }}
+            animate={{
+              width: activeSection !== '' ? 'auto' : 0,
+            }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="h-full flex-shrink-0 relative"
+            style={{ overflow: 'hidden' }}
+            aria-hidden={activeSection === ''}
+          >
+            <a
+              href="#hero"
+              tabIndex={activeSection === '' ? -1 : undefined}
+              className="block h-full"
+            >
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: activeSection !== '' ? 1 : 0,
+                }}
+                transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
+                src={assets.logos.black.url}
+                alt="バーチャルケモナイト ロゴ"
+                className="h-full py-2 object-cover object-left"
+              />
+            </a>
+          </motion.li>
 
           {sections.map(({ id, label }) => (
             <li
