@@ -6,6 +6,7 @@ import Menu from '@/components/Menu';
 import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
+import GoogleAnalytics from './GoogleAnalytics.astro';
 
 type Props = {
   title?: string;
@@ -56,7 +57,8 @@ const {
       }}
     />
     <Font />
-	</head>
+    <GoogleAnalytics />
+  </head>
 
 	<body>
     <SplashScreen />
