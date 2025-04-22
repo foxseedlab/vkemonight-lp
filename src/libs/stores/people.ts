@@ -28,6 +28,7 @@ export type SocialLink = {
 export type PositionType =
   | '主催'
   | 'DJ'
+  | 'VJ'
   | 'MC'
   | '照明'
   | 'バーテンダー'
