@@ -9,6 +9,7 @@ export default function Position({ positions, className = '' }: Props) {
   const bgColors = new Map<PositionType, string>([
     ['主催', 'bg-red-700'],
     ['DJ', 'bg-violet-800'],
+    ['VJ', 'bg-cyan-700'],
     ['MC', 'bg-neutral-800'],
     ['照明', 'bg-neutral-800'],
     ['バーテンダー', 'bg-neutral-800'],

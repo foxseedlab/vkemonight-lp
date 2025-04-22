@@ -9,7 +9,7 @@ export type Schedule = {
   revisedAt: string;
   start_at: string;
   end_at: string;
-  description: string;
+  genre: string;
   performer: Person;
   is_dj: boolean;
 };

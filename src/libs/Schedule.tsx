@@ -97,7 +97,7 @@ function DJSchedule({
               startAtStr={djSchedule.start_at}
               endAtStr={djSchedule.end_at}
               name={djSchedule.performer.name}
-              description={djSchedule.description}
+              genre={djSchedule.genre}
               avatarUrl={djSchedule.performer.avatar.url}
             />
           </motion.li>
@@ -111,13 +111,13 @@ function DJ({
   startAtStr,
   endAtStr,
   name,
-  description,
+  genre,
   avatarUrl,
 }: {
   startAtStr: string;
   endAtStr: string;
   name: string;
-  description: string;
+  genre: string;
   avatarUrl: string;
 }) {
   const startAtHourAndMinute = dayjs(startAtStr)
@@ -143,12 +143,7 @@ function DJ({
           {startAtHourAndMinute} - {endAtHourAndMinute}
         </div>
         <h3 className="text-lg font-medium">{name}</h3>
-        <div
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-          dangerouslySetInnerHTML={{
-            __html: description.replace('\n', '<br>'),
-          }}
-        />
+        <div>{genre}</div>
       </div>
     </div>
   );
