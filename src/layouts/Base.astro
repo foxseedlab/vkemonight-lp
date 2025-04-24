@@ -42,16 +42,7 @@ const {
         card: 'summary_large_image',
       }}
       openGraph={{
-        basic: { title, type: 'website', image: import.meta.env.PUBLIC_SITE_URL },
-        optional: {
-          description,
-          locale: 'ja_JP',
-          siteName: 'バーチャルケモナイト',
-        },
-        image: {
-          url: assets.ogp.url,
-          alt: 'バーチャルケモナイト',
-        },
+        basic: { title, type: 'website', image: assets.ogp.url },
       }}
       noindex={noindex}
       nofollow={nofollow}
