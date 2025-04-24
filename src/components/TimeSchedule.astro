@@ -45,7 +45,7 @@ const { djSchedules, featuredImage, assets } = Astro.props;
       <h2 class="mb-4 px-8 w-full text-3xl font-bold tracking-wide leading-12 text-center">
         さあ、胸の鼓動と共に踊り出そう。
       </h2>
-      <JoinTicket assets={assets} />
+      <JoinTicket assets={assets} client:load />
       <Paragraph className="mt-4 px-8 text-center break-keep wrap-anywhere">
         当イベントは非営利のイベントで&#8203;、参加費は無料です。
       </Paragraph>
