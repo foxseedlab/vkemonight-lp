@@ -42,7 +42,7 @@ const {
         card: 'summary_large_image',
       }}
       openGraph={{
-        basic: { title, type: 'website', image: assets.ogp.url },
+        basic: { title, type: 'website', image: import.meta.env.PUBLIC_SITE_URL },
       }}
       noindex={noindex}
       nofollow={nofollow}
@@ -50,9 +50,11 @@ const {
       extend={{
         link: [
           { rel: "icon", type: "image/svg+xml", href: assets.favicon.url },
+          { rel: "preconnect", href: "https://images.microcms-assets.io" },
         ],
         meta: [
           { name: "viewport", content: "width=device-width, initial-scale=1" },
+          { property: "og:locale", content: "ja_JP" },
         ],
       }}
     />
