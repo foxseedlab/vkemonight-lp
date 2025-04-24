@@ -7,6 +7,12 @@ export function recommendFeaturedSrc(src: string) {
   return `${src}?w=${width}&fm=${format}&q=${quality}&auto=compress,format&${compression}=1`;
 }
 
+export function recommendTicketSrc(src: string) {
+  const format = 'webp';
+
+  return `${src}?fm=${format}`;
+}
+
 export function recommendStillSrc(src: string) {
   const format = 'webp';
   const width = 512;

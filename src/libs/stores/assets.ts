@@ -29,6 +29,7 @@ export type Assets = {
     youtube: Image;
     mixcloud: Image;
     vrchat: Image;
+    booth: Image;
     github: Image;
     linktree: Image;
     kofi: Image;

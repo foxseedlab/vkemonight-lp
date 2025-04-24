@@ -37,7 +37,7 @@ const itemVariants = {
 export default function StaffIntroductions({ staffs, assets }: Props) {
   return (
     <motion.ul
-      className="mt-12 px-8 md:px-16 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
+      className="mt-12 px-6 md:px-16 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

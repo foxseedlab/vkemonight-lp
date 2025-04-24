@@ -37,7 +37,7 @@ const itemVariants = {
 export default function OrganizerIntroductions({ organizers, assets }: Props) {
   return (
     <motion.ul
-      className="px-8 md:px-16 w-full flex flex-col items-end gap-12"
+      className="px-6 md:px-16 w-full flex flex-col items-end gap-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

@@ -40,7 +40,7 @@ const itemVariants = {
 export default function SpecialGuestIntroductions({ guests, assets }: Props) {
   return (
     <motion.ul
-      className="pt-8 px-8 md:px-16 w-full flex flex-col gap-8"
+      className="pt-8 px-6 md:px-16 w-full flex flex-col gap-8"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

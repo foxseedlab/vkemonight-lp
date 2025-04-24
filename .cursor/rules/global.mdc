@@ -14,6 +14,7 @@ alwaysApply: true
 - Tailwind CSS
 - Framer Motion
 - Cloudflare Pages (デプロイ)
+- microCMS (CMS)
 
 ■ 実装時の注意点
 - 書籍「リーダブルコード」のようなベストプラクティスを常に適用してください。
