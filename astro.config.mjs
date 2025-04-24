@@ -3,12 +3,14 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import { cjsInterop } from 'vite-plugin-cjs-interop';
 
-import react from '@astrojs/react';
-
 import partytown from '@astrojs/partytown';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://vkemonight.pages.dev',
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -26,5 +28,6 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    sitemap(),
   ],
 });
