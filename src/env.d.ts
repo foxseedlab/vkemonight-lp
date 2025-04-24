@@ -7,6 +7,8 @@ type ImportMetaEnv = {
 
   readonly PUBLIC_GOOGLE_SITE_VERIFICATION: string;
   readonly PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID: string;
+
+  readonly PUBLIC_SITE_URL: string;
 };
 
 interface ImportMeta {

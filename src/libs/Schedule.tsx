@@ -4,6 +4,7 @@ import utc from 'dayjs/plugin/utc';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BeveledRectangleFigure } from './Box';
+import type { Person } from './stores/people';
 import type { Schedule as ScheduleStore } from './stores/schedules';
 
 // タイムゾーン処理のためのプラグインを設定
@@ -99,6 +100,7 @@ function DJSchedule({
               name={djSchedule.performer.name}
               genre={djSchedule.genre}
               avatarUrl={djSchedule.performer.avatar.url}
+              vj={djSchedule.vj}
             />
           </motion.li>
         ))}
@@ -113,12 +115,14 @@ function DJ({
   name,
   genre,
   avatarUrl,
+  vj,
 }: {
   startAtStr: string;
   endAtStr: string;
   name: string;
   genre: string;
   avatarUrl: string;
+  vj: Person | null;
 }) {
   const startAtHourAndMinute = dayjs(startAtStr)
     .tz('Asia/Tokyo')
@@ -144,6 +148,13 @@ function DJ({
         </div>
         <h3 className="text-lg font-medium">{name}</h3>
         <div>{genre}</div>
+        {vj && (
+          <div className="mt-[0.1rem]">
+            <span className="px-4 text-secondary/75 bg-secondary/10 rounded-lg">
+              VJ: {vj.name}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

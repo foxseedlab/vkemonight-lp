@@ -11,6 +11,7 @@ export type Schedule = {
   end_at: string;
   genre: string;
   performer: Person;
+  vj: Person | null;
   is_dj: boolean;
 };
 

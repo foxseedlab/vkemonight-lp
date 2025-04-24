@@ -7,7 +7,7 @@ import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
-
+import ThemeColor from './ThemeColor.astro';
 type Props = {
   title?: string;
   description?: string;
@@ -18,7 +18,7 @@ type Props = {
 };
 
 const {
-  title = 'バーチャルケモナイト | バーチャルからお送りする夜のDJフェス',
+  title = 'バーチャルケモナイト | バーチャルからお送りする夜のDJイベント',
   description = 'バーチャルケモナイトは、7月12日にVRChatで開催されるオールナイトのDJイベントです。',
   xSite = '@KEMO_INTHE_DARK',
   noindex = true,
@@ -57,6 +57,7 @@ const {
       }}
     />
     <Font />
+    <ThemeColor />
     <GoogleAnalytics />
   </head>
 

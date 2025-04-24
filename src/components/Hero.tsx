@@ -62,7 +62,7 @@ export default function Hero({ assets }: Props) {
         </motion.h1>
 
         <TextStaggeredFade
-          text="バーチャルからお送りする夜のDJフェス | VRChat"
+          text="バーチャルからお送りする夜のDJイベント | VRChat"
           className="mt-4 md:mt-8 text-sm md:text-2xl font-bold tracking-widest"
           initialDelay={1.5}
         />
@@ -89,7 +89,7 @@ export default function Hero({ assets }: Props) {
             </span>
             <span className="px-2">~</span>
             <span className="text-xl md:text-4xl outlined-text-shadow-xs md:outlined-text-shadow-md text-shadow-current">
-              04:15
+              04:00
             </span>
           </div>
         </motion.div>

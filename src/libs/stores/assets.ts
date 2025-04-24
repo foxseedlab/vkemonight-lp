@@ -29,6 +29,7 @@ export type Assets = {
     mixcloud: Image;
     vrchat: Image;
     github: Image;
+    linktree: Image;
     kofi: Image;
   };
 };

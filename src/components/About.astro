@@ -4,6 +4,7 @@ import SectionBody from '@/libs/SectionBody';
 import PrimaryButton from '@/libs/buttons/PrimaryButton';
 import Header1 from '@/libs/headers/Header1';
 import Header2 from '@/libs/headers/Header2';
+import Header3 from '@/libs/headers/Header3';
 import Paragraph from '@/libs/headers/Paragraph';
 
 import type { Image } from '@/libs/stores/init';
@@ -27,23 +28,35 @@ const { featuredImages } = Astro.props;
       <SectionBody client:load>
         <Header2 title="初めてでも楽しめるバーチャルDJイベント" className="mb-10" />
 
+        <Paragraph className="mb-8 w-full">
+          「バーチャルケモナイト」は、オールナイトのVRChatのDJイベントです。
+          「VRChatって初めてなんだけど…」「DJイベントってどんな感じ？
+          そんな心配はご無用！私たちがノリの良い選曲とパフォーマンスで、アツい一夜をお届けします！
+        </Paragraph>
+
+        <div class="mb-8 border-l-2 border-primary pl-4">
+          <Header3 title="ここは誰でもウェルカムな空間！" className="mb-2" />
+          <Paragraph className="w-full">
+            会場では、リズムに乗って踊ったり、友達と盛り上がったり、音楽に身を委ねたり…楽しみ方はあなた次第です。
+            難しいルールはないので、気軽に遊びに来てください！
+          </Paragraph>
+        </div>
+
+        <div class="mb-8 border-l-2 border-primary pl-4">
+          <Header3 title="PCがなくても大丈夫！" className="mb-2" />
+          <Paragraph className="w-full">
+            Meta Quest単体やスマホ(Android)からでも、この熱気あふれる空間に参加できます。
+            「ちょっと様子見で…」という気持ちでも、ぜひイベントに飛び込んできてください！
+          </Paragraph>
+        </div>
+
         <Paragraph className="w-full">
-          「バーチャルケモナイト」は、VRChatで開催されるオールナイトのDJイベントです！🥳
-        </Paragraph>
-
-        <Paragraph className="mt-4 w-full">
-          まだVRChatに触れたことがないケモナーの皆さん、DJイベントは初めてという方も大歓迎！✨
-          最高の音楽と空間で、きっと忘れられない夜になりますよ。
-        </Paragraph>
-
-        <Paragraph className="mt-4 w-full">
-          PCはもちろん、Meta Quest単体や、なんとスマホからでも参加OK！📱
-          気軽に立ち寄って、私たちと一緒に最高の夜を過ごしませんか？🙌
-          最高の音楽を用意して、あなたをお待ちしています！🎧
+          最高のビートと、みんなが楽しめるフレンドリーな空間を用意してお待ちしています。
+          一緒に忘れられない夜を作りましょう！
         </Paragraph>
 
         <PrimaryButton
-          label="参加する"
+          label="参加方法をチェック！"
           href="#timeschedule"
           className="mt-10"
         />

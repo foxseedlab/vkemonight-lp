@@ -1,6 +1,15 @@
 ---
 const siteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 const measurementId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID;
+
+const gaScriptContent = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "${measurementId}");
+`;
 ---
 
 <script
@@ -8,13 +17,6 @@ const measurementId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID;
   type="text/partytown"
   async
   src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
-<script is:inline type="text/partytown">
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", measurementId);
-</script>
+<script is:inline type="text/partytown" set:html={gaScriptContent} />
 
 <meta name="google-site-verification" content={siteVerification} />
