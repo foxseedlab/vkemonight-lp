@@ -24,7 +24,7 @@ export default function SectionBody({ children }: Props) {
   return (
     <motion.div
       ref={ref}
-      className="px-10 md:px-16 w-full flex flex-col items-center"
+      className="px-6 md:px-16 w-full flex flex-col items-center"
       variants={fadeInVariants}
       initial="hidden"
       animate={isInView ? 'show' : 'hidden'}
