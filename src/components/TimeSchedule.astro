@@ -1,8 +1,11 @@
 ---
 import FeaturedImage from '@/libs/FeaturedImage';
+import JoinTicket from '@/libs/JoinTicket';
 import ScheduleArea from '@/libs/Schedule';
 import Wave from '@/libs/Wave.astro';
 import Header1 from '@/libs/headers/Header1';
+import Paragraph from '@/libs/headers/Paragraph';
+import type { Assets } from '@/libs/stores/assets';
 import type { Image } from '@/libs/stores/init';
 
 import type { Schedule } from '@/libs/stores/schedules';
@@ -10,9 +13,10 @@ import type { Schedule } from '@/libs/stores/schedules';
 type Props = {
   djSchedules: Schedule[];
   featuredImage: Image;
+  assets: Assets;
 };
 
-const { djSchedules, featuredImage } = Astro.props;
+const { djSchedules, featuredImage, assets } = Astro.props;
 ---
 
 <section class="mt-96 md:mt-72">
@@ -35,6 +39,16 @@ const { djSchedules, featuredImage } = Astro.props;
       <div class="w-full md:w-1/2">
         <FeaturedImage image={featuredImage} right />
       </div>
+    </div>
+
+    <div class="mt-48 flex flex-col items-center">
+      <h2 class="mb-4 px-8 w-full text-3xl font-bold tracking-wide leading-12 text-center">
+        さあ、胸の鼓動と共に踊り出そう。
+      </h2>
+      <JoinTicket assets={assets} client:load />
+      <Paragraph className="mt-4 px-8 text-center break-keep wrap-anywhere">
+        当イベントは非営利のイベントで&#8203;、参加費は無料です。
+      </Paragraph>
     </div>
   </div>
 

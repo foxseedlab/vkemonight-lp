@@ -12,6 +12,7 @@ export type Assets = {
     hero: Image;
     about: Image[];
     timeschedule: Image;
+    join_ticket: Image;
     contribute: Image;
   };
   logos: {
