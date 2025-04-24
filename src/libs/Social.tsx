@@ -29,6 +29,7 @@ export default function Social({ socials, assets, className = '' }: Props) {
     ['Mixcloud', { url: assets.social_logos.mixcloud.url, height: 'h-[20px]' }],
     ['VRChat', { url: assets.social_logos.vrchat.url, height: 'h-[20px]' }],
     ['GitHub', { url: assets.social_logos.github.url, height: 'h-[23px]' }],
+    ['Linktree', { url: assets.social_logos.linktree.url, height: 'h-[20px]' }],
   ]);
 
   return (

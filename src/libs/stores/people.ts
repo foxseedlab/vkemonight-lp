@@ -44,7 +44,8 @@ export type SocialLinkType =
   | 'YouTube'
   | 'Mixcloud'
   | 'VRChat'
-  | 'GitHub';
+  | 'GitHub'
+  | 'Linktree';
 
 export async function fetchPeople(): Promise<Person[]> {
   const client = createCMSClient();
