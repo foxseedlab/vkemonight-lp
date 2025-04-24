@@ -32,7 +32,7 @@ const staffs = await fetchStaffsWithoutOrganizer();
   <Hero assets={assets} client:only />
   <About featuredImages={assets.featured_images.about} />
   <Guests specialGuests={specialGuests} guests={guests} assets={assets} />
-  <TimeSchedule djSchedules={djSchedules} featuredImage={assets.featured_images.timeschedule} />
+  <TimeSchedule djSchedules={djSchedules} featuredImage={assets.featured_images.timeschedule} assets={assets} />
   <Contribute featuredImage={assets.featured_images.contribute} />
   <Staffs organizers={organizers} staffs={staffs} assets={assets} />
   <Contact />
