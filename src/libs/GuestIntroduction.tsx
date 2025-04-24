@@ -5,6 +5,7 @@ import { RightAngledIsoscelesTriangleCorner } from './Corner';
 import Position from './Position';
 import Social from './Social';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
+import { recommendAvatarSrc } from './imgix/image';
 import type { Assets } from './stores/assets';
 import type { Person, PositionType, SocialLink } from './stores/people';
 

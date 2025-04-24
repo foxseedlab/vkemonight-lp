@@ -6,6 +6,7 @@ import Position from './Position';
 import Social from './Social';
 import Header2 from './headers/Header2';
 import { ParagraphWithLineBreak } from './headers/Paragraph';
+import { recommendStillSrc } from './imgix/image';
 import type { Assets } from './stores/assets';
 import type { Person, PositionType, SocialLink } from './stores/people';
 
@@ -93,7 +94,7 @@ function SpecialGuestIntroduction({
           absolute -top-[6rem] bottom-auto md:top-auto md:bottom-0 flex flex-col items-center"
         >
           <img
-            src={stillPhotographyUrl}
+            src={recommendStillSrc(stillPhotographyUrl)}
             alt={name}
             className="h-full object-cover"
           />

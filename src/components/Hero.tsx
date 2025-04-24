@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
 
 import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
+import { recommendFeaturedSrc, recommendLogoSrc } from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -54,7 +55,7 @@ export default function Hero({ assets }: Props) {
           animate="visible"
         >
           <img
-            src={assets.logos.white.url}
+            src={recommendLogoSrc(assets.logos.white.url)}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
@@ -97,7 +98,7 @@ export default function Hero({ assets }: Props) {
 
       <figure className="w-full h-full">
         <img
-          src={assets.featured_images.hero.url}
+          src={recommendFeaturedSrc(assets.featured_images.hero.url)}
           alt="ヒーロー"
           className="w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem]"
         />
