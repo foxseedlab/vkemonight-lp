@@ -44,6 +44,7 @@ export type SocialLinkType =
   | 'YouTube'
   | 'Mixcloud'
   | 'VRChat'
+  | 'Booth'
   | 'GitHub'
   | 'Linktree';
 
