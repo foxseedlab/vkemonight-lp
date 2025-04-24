@@ -7,7 +7,7 @@ import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
-
+import ThemeColor from './ThemeColor.astro';
 type Props = {
   title?: string;
   description?: string;
@@ -57,6 +57,7 @@ const {
       }}
     />
     <Font />
+    <ThemeColor />
     <GoogleAnalytics />
   </head>
 
