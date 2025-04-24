@@ -7,7 +7,7 @@ import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
-import ThemeColor from './ThemeColor.astro';
+
 type Props = {
   title?: string;
   description?: string;
@@ -21,8 +21,8 @@ const {
   title = 'バーチャルケモナイト | バーチャルからお送りする夜のDJイベント',
   description = 'バーチャルケモナイトは、7月12日にVRChatで開催されるオールナイトのDJイベントです。',
   xSite = '@KEMO_INTHE_DARK',
-  noindex = true,
-  nofollow = true,
+  noindex = false,
+  nofollow = false,
   assets,
 } = Astro.props;
 ---
@@ -43,6 +43,15 @@ const {
       }}
       openGraph={{
         basic: { title, type: 'website', image: import.meta.env.PUBLIC_SITE_URL },
+        optional: {
+          description,
+          locale: 'ja_JP',
+          siteName: 'バーチャルケモナイト',
+        },
+        image: {
+          url: assets.ogp.url,
+          alt: 'バーチャルケモナイト',
+        },
       }}
       noindex={noindex}
       nofollow={nofollow}
@@ -55,11 +64,12 @@ const {
         meta: [
           { name: "viewport", content: "width=device-width, initial-scale=1" },
           { property: "og:locale", content: "ja_JP" },
+          { property: "og:theme-color", content: "#1E1E1E" },
+          { property: "theme-color", content: "#1E1E1E" },
         ],
       }}
     />
     <Font />
-    <ThemeColor />
     <GoogleAnalytics />
   </head>
 
