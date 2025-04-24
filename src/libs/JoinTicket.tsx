@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { recommendFeaturedSrc } from './imgix/image';
 import type { Assets } from './stores/assets';
 
 type Props = {
@@ -20,7 +21,7 @@ export default function JoinTicket({ assets }: Props) {
         }}
       >
         <img
-          src={assets.featured_images.join_ticket.url}
+          src={recommendFeaturedSrc(assets.featured_images.join_ticket.url)}
           alt="チケット"
           className="w-full"
         />

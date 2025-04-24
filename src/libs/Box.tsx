@@ -1,3 +1,5 @@
+import { recommendAvatarSrc, recommendStillSrc } from './imgix/image';
+
 export function BeveledRectangleBox({
   width,
   height,
@@ -50,7 +52,7 @@ export function BeveledRectangleFigure({
   return (
     <figure className={`relative ${className}`}>
       <img
-        src={imgSrc}
+        src={recommendAvatarSrc(imgSrc)}
         alt={imgAlt}
         className="w-full mask-contain"
         style={{

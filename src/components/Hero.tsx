@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
+import {
+  recommendFeaturedSrc,
+  recommendLogoSrc,
+  recommendPlaceholderSrc,
+} from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -10,6 +16,14 @@ type Props = {
 
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+  const [logoLoaded, setLogoLoaded] = useState(false);
+  const [placeholder, setPlaceholder] = useState<string | null>(null);
+
+  // ページロード時にプレースホルダーを設定
+  useEffect(() => {
+    setPlaceholder(recommendPlaceholderSrc(assets.featured_images.hero.url));
+  }, [assets.featured_images.hero.url]);
 
   const logoVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -46,18 +60,22 @@ export default function Hero({ assets }: Props) {
       }}
       id="hero"
     >
+      {/* ヒーローセクションのレイアウトを固定するためのコンテナ */}
       <div className="mt-[30svh] px-4 w-full flex flex-col items-center absolute z-10">
         <motion.h1
           className="w-3/4 md:w-2/3 xl:w-1/2"
           variants={logoVariants}
           initial="hidden"
-          animate="visible"
+          animate={logoLoaded ? 'visible' : 'hidden'}
         >
           <img
-            src={assets.logos.white.url}
+            src={recommendLogoSrc(assets.logos.white.url)}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
+            width="512"
+            height="auto"
+            onLoad={() => setLogoLoaded(true)}
           />
         </motion.h1>
 
@@ -96,10 +114,24 @@ export default function Hero({ assets }: Props) {
       </div>
 
       <figure className="w-full h-full">
+        {/* プレースホルダーイメージ */}
+        {placeholder && !heroImageLoaded && (
+          <img
+            src={placeholder}
+            alt="ヒーロー（ロード中）"
+            className="w-full h-full object-cover brightness-35 contrast-100 blur-[1rem] absolute inset-0"
+            style={{ transition: 'opacity 0.3s ease-in-out' }}
+          />
+        )}
         <img
-          src={assets.featured_images.hero.url}
+          src={recommendFeaturedSrc(assets.featured_images.hero.url)}
           alt="ヒーロー"
-          className="w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem]"
+          className={`w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem] ${!heroImageLoaded ? 'opacity-0' : 'opacity-100'}`}
+          style={{ transition: 'opacity 0.3s ease-in-out' }}
+          onLoad={() => setHeroImageLoaded(true)}
+          width="1080"
+          height="auto"
+          fetchPriority="high"
         />
       </figure>
 

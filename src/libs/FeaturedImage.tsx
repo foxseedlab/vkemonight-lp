@@ -2,6 +2,7 @@ import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import { recommendFeaturedSrc } from './imgix/image';
 import type { Image } from './stores/init';
 
 type FeaturedImageProps = {
@@ -14,7 +15,7 @@ export default function FeaturedImage({ image, right }: FeaturedImageProps) {
     <figure className="relative">
       <div className="w-full aspect-square">
         <img
-          src={image.url}
+          src={recommendFeaturedSrc(image.url)}
           alt="アイキャッチ画像"
           className={`w-full h-full object-cover mask-contain ${
             right
@@ -69,7 +70,7 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
           <SwiperSlide key={image.url}>
             <div className="w-full aspect-square">
               <img
-                src={image.url}
+                src={recommendFeaturedSrc(image.url)}
                 alt={`アイキャッチ画像${index + 1}`}
                 className="w-full h-full object-cover"
               />
