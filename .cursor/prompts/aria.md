@@ -1,0 +1,80 @@
+ARIA属性一覧
+
+# ウィジェット属性
+- aria-autocomplete
+- aria-checked
+- aria-disabled
+- aria-errormessage
+- aria-expanded
+- aria-haspopup
+- aria-hidden
+- aria-invalid
+- aria-label
+- aria-level
+- aria-modal
+- aria-multiline
+- aria-multiselectable
+- aria-orientation
+- aria-placeholder
+- aria-pressed
+- aria-readonly
+- aria-required
+- aria-selected
+- aria-sort
+- aria-valuemax
+- aria-valuemin
+- aria-valuenow
+- aria-valuetext
+
+# ライブリージョン属性
+- aria-busy
+- aria-live
+- aria-relevant
+- aria-atomic
+
+# ドラッグ＆ドロップ属性
+- aria-dropeffect
+- aria-grabbed
+
+# リレーションシップ属性
+- aria-activedescendant
+- aria-colcount
+- aria-colindex
+- aria-colspan
+- aria-controls
+- aria-describedby
+- aria-description
+- aria-details
+- aria-errormessage
+- aria-flowto
+- aria-labelledby
+- aria-owns
+- aria-posinset
+- aria-rowcount
+- aria-rowindex
+- aria-rowspan
+- aria-setsize
+
+# グローバル ARIA 属性
+- aria-atomic
+- aria-busy
+- aria-controls
+- aria-current
+- aria-describedby
+- aria-description
+- aria-details
+- aria-disabled
+- aria-dropeffect
+- aria-errormessage
+- aria-flowto
+- aria-grabbed
+- aria-haspopup
+- aria-hidden
+- aria-invalid
+- aria-keyshortcuts
+- aria-label
+- aria-labelledby
+- aria-live
+- aria-owns
+- aria-relevant
+- aria-roledescription
