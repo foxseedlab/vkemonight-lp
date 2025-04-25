@@ -33,6 +33,7 @@ export type Assets = {
     github: Image;
     linktree: Image;
     kofi: Image;
+    homepage: Image;
   };
 };
 
