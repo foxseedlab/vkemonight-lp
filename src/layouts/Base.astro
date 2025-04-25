@@ -3,6 +3,7 @@ import Footer from '@/components/Footer.astro';
 import SplashScreen from '@/components/SplashScreen.astro';
 
 import Menu from '@/components/Menu';
+import { recommendLogoSrc } from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
@@ -59,6 +60,8 @@ const {
         ],
       }}
     />
+    <link rel="preload" fetchpriority="high" as="image" href={recommendLogoSrc(assets.logos.white.url)} />
+
     <meta name="theme-color" content="#1E1E1E" />
     <Font />
     <GoogleAnalytics />
