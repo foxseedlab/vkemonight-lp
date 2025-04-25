@@ -15,6 +15,7 @@ export default function Position({ positions, className = '' }: Props) {
     ['バーテンダー', 'bg-neutral-800'],
     ['SNS運用', 'bg-neutral-800'],
     ['ロゴ制作', 'bg-neutral-800'],
+    ['フライヤー制作', 'bg-neutral-800'],
     ['ページ制作', 'bg-neutral-800'],
   ]);
 

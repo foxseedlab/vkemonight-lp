@@ -34,6 +34,7 @@ export type PositionType =
   | 'バーテンダー'
   | 'SNS運用'
   | 'ロゴ制作'
+  | 'フライヤー制作'
   | 'ページ制作';
 
 export type SocialLinkType =
@@ -46,7 +47,8 @@ export type SocialLinkType =
   | 'VRChat'
   | 'Booth'
   | 'GitHub'
-  | 'Linktree';
+  | 'Linktree'
+  | 'homepage';
 
 export async function fetchPeople(): Promise<Person[]> {
   const client = createCMSClient();

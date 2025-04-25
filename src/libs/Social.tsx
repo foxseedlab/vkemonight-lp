@@ -31,6 +31,7 @@ export default function Social({ socials, assets, className = '' }: Props) {
     ['GitHub', { url: assets.social_logos.github.url, height: 'h-[23px]' }],
     ['Booth', { url: assets.social_logos.booth.url, height: 'h-[24px]' }],
     ['Linktree', { url: assets.social_logos.linktree.url, height: 'h-[20px]' }],
+    ['homepage', { url: assets.social_logos.homepage.url, height: 'h-[28px]' }],
   ]);
 
   return (
