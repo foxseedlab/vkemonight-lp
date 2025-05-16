@@ -4,6 +4,7 @@ type ImportMetaEnv = {
 
   readonly PUBLIC_X_URL: string;
   readonly PUBLIC_KOFI_URL: string;
+  readonly PUBLIC_VRCHAT_GROUP_URL: string;
 
   readonly PUBLIC_GOOGLE_SITE_VERIFICATION: string;
   readonly PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID: string;

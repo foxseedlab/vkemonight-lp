@@ -7,9 +7,12 @@ NODE_VERSION = "22.14.0"
 PUBLIC_X_URL = "https://x.com/KEMO_INTHE_DARK"
 PUBLIC_KOFI_URL = "https://ko-fi.com/virtualkemonight/"
 PUBLIC_SITE_URL = "https://vkemonight.pages.dev"
+PUBLIC_VRCHAT_GROUP_URL = "https://vrchat.com/home/group/grp_df8cd4d3-d99b-48d0-aa45-87b464ee2124"
+
 
 [env.production.vars]
 NODE_VERSION = "22.14.0"
 PUBLIC_X_URL = "https://x.com/KEMO_INTHE_DARK"
 PUBLIC_KOFI_URL = "https://ko-fi.com/virtualkemonight/"
 PUBLIC_SITE_URL = "https://vkemonight.pages.dev"
+PUBLIC_VRCHAT_GROUP_URL = "https://vrchat.com/home/group/grp_df8cd4d3-d99b-48d0-aa45-87b464ee2124"
