@@ -4,9 +4,15 @@ type Props = {
   label: string;
   href: string;
   className?: string;
+  newTab?: boolean;
 };
 
-export default function PrimaryButton({ label, href, className = '' }: Props) {
+export default function PrimaryButton({
+  label,
+  href,
+  className = '',
+  newTab = false,
+}: Props) {
   return (
     <a
       href={href}
@@ -19,6 +25,8 @@ export default function PrimaryButton({ label, href, className = '' }: Props) {
         break-keep wrap-anywhere
         ${className}
       `}
+      target={newTab ? '_blank' : '_self'}
+      rel={newTab ? 'noopener noreferrer' : undefined}
     >
       {label}
 

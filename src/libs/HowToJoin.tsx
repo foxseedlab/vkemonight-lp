@@ -42,6 +42,7 @@ export default function HowToJoin() {
             label="グループに参加する"
             href={import.meta.env.PUBLIC_VRCHAT_GROUP_URL}
             className="mt-8"
+            newTab
           />
         </div>
 
