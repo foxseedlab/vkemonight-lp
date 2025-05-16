@@ -6,14 +6,18 @@ import Header1 from '@/libs/headers/Header1';
 import Header2 from '@/libs/headers/Header2';
 import Paragraph from '@/libs/headers/Paragraph';
 
+import type { Patron } from '@/libs/stores/assets';
 import type { Image } from '@/libs/stores/init';
 
 type Props = {
   featuredImage: Image;
+  patrons: Patron[];
 };
 
-const { featuredImage } = Astro.props;
+const { featuredImage, patrons } = Astro.props;
 const kofiUrl = import.meta.env.PUBLIC_KOFI_URL;
+
+const honorific = '様';
 ---
 
 <section class="mt-96 md:mt-72" id="contribute">
@@ -56,6 +60,17 @@ const kofiUrl = import.meta.env.PUBLIC_KOFI_URL;
           href={kofiUrl}
           className="mt-16"
         />
+
+        <div class="mt-8 text-center">
+          <p class="mb-2">温かいご支援を賜りました皆様に、心より感謝申し上げます。</p>
+          <p>
+            {patrons.map((patron, index) => (
+              <span>
+                {patron.name}{patron.is_need_honorific ? honorific : ''}{index !== patrons.length - 1 ? '、' : ''}
+              </span>
+            ))}
+          </p>
+        </div>
       </SectionBody>
     </div>
   </div>
