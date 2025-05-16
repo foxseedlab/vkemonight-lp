@@ -35,6 +35,13 @@ export type Assets = {
     kofi: Image;
     homepage: Image;
   };
+  patrons: Patron[];
+};
+
+export type Patron = {
+  fieldId: string;
+  name: string;
+  is_need_honorific: boolean;
 };
 
 export async function fetchAssets(): Promise<Assets> {
