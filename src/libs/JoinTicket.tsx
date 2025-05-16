@@ -20,11 +20,17 @@ export default function JoinTicket({ assets }: Props) {
           transition: { duration: 0.1, ease: 'easeOut' },
         }}
       >
-        <img
-          src={recommendTicketSrc(assets.featured_images.join_ticket.url)}
-          alt="チケット"
-          className="w-full"
-        />
+        <a
+          href={import.meta.env.PUBLIC_VRCHAT_GROUP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={recommendTicketSrc(assets.featured_images.join_ticket.url)}
+            alt="チケット"
+            className="w-full"
+          />
+        </a>
       </motion.div>
     </figure>
   );
