@@ -37,8 +37,11 @@ const { djSchedules, featuredImage, assets } = Astro.props;
         <ScheduleArea djSchedules={djSchedules} client:load />
       </div>
 
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2 flex flex-col justify-between">
         <FeaturedImage image={featuredImage} right />
+
+        <!-- lets-join 行きのボタンで参加方法エリアより少し上の方に推移してほしいため、ここにIDを設置 -->
+        <div id="lets-join" />
       </div>
     </div>
 
