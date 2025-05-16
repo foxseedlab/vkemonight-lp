@@ -1,5 +1,6 @@
 ---
 import FeaturedImage from '@/libs/FeaturedImage';
+import HowToJoin from '@/libs/HowToJoin';
 import JoinTicket from '@/libs/JoinTicket';
 import ScheduleArea from '@/libs/Schedule';
 import Wave from '@/libs/Wave.astro';
@@ -46,6 +47,7 @@ const { djSchedules, featuredImage, assets } = Astro.props;
         さあ、胸の鼓動と&#8203;共に踊り出そう。
       </h2>
       <JoinTicket assets={assets} client:load />
+      <HowToJoin client:load />
       <Paragraph className="mt-4 px-6 text-center break-keep wrap-anywhere">
         当イベントは非営利のイベントで&#8203;、参加費は無料です。
       </Paragraph>

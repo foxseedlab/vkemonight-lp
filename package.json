@@ -23,6 +23,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-use": "^17.6.0",
+    "react-youtube": "^10.1.0",
     "swiper": "^11.2.6",
     "tailwindcss": "^4.1.4"
   },
