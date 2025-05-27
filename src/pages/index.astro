@@ -33,7 +33,7 @@ const staffs = await fetchStaffsWithoutOrganizer();
   <About featuredImages={assets.featured_images.about} />
   <Guests specialGuests={specialGuests} guests={guests} assets={assets} />
   <TimeSchedule djSchedules={djSchedules} featuredImage={assets.featured_images.timeschedule} assets={assets} />
-  <Contribute featuredImage={assets.featured_images.contribute} />
+  <Contribute featuredImage={assets.featured_images.contribute} patrons={assets.patrons} />
   <Staffs organizers={organizers} staffs={staffs} assets={assets} />
   <Contact />
 </BaseLayout>
