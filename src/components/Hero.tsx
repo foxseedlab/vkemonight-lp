@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
-import {
-  recommendFeaturedSrc,
-  recommendLogoSrc,
-  recommendPlaceholderSrc,
-} from '@/libs/imgix/image';
+import { recommendFeaturedSrc, recommendLogoSrc } from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -16,14 +12,8 @@ type Props = {
 
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
-  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+  const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
   const [logoLoaded, setLogoLoaded] = useState(false);
-  const [placeholder, setPlaceholder] = useState<string | null>(null);
-
-  // ページロード時にプレースホルダーを設定
-  useEffect(() => {
-    setPlaceholder(recommendPlaceholderSrc(assets.featured_images.hero.url));
-  }, [assets.featured_images.hero.url]);
 
   const logoVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -114,24 +104,30 @@ export default function Hero({ assets }: Props) {
       </div>
 
       <figure className="w-full h-full">
-        {/* プレースホルダーイメージ */}
-        {placeholder && !heroImageLoaded && (
-          <img
-            src={placeholder}
-            alt="ヒーロー（ロード中）"
-            className="w-full h-full object-cover brightness-35 contrast-100 blur-[1rem] absolute inset-0"
+        {!heroVideoLoaded && (
+          <div
+            className="w-full h-full absolute inset-0 bg-gray-900 brightness-35 contrast-100 flex items-center justify-center"
             style={{ transition: 'opacity 0.3s ease-in-out' }}
+            role="img"
+            aria-hidden="true"
           />
         )}
-        <img
-          src={recommendFeaturedSrc(assets.featured_images.hero.url)}
-          alt="ヒーロー"
-          className={`w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem] ${!heroImageLoaded ? 'opacity-0' : 'opacity-100'}`}
-          style={{ transition: 'opacity 0.3s ease-in-out' }}
-          onLoad={() => setHeroImageLoaded(true)}
-          width="1080"
-          height="auto"
-          fetchPriority="high"
+        <video
+          src={assets.featured_images.hero_video_url}
+          className={`w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem] absolute inset-0 transition-opacity duration-300 ${
+            heroVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoadedData={() => setHeroVideoLoaded(true)}
+          width="1920"
+          height="1080"
+          muted
+          autoPlay
+          loop
+          playsInline
+          aria-label="ハイライト動画"
+          poster={recommendFeaturedSrc(
+            assets.featured_images.hero_video_thumbnail.url,
+          )}
         />
       </figure>
 
