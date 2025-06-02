@@ -29,14 +29,6 @@ export function recommendAvatarSrc(src: string) {
   return `${src}?w=${width}&fm=${format}&q=${quality}&auto=compress,format`;
 }
 
-export function recommendLogoSrc(src: string) {
-  const format = 'webp';
-  const width = 512;
-  const quality = 90;
-
-  return `${src}?w=${width}&fm=${format}&q=${quality}&auto=compress,format`;
-}
-
 export function recommendPlaceholderSrc(src: string) {
   const format = 'webp';
   const width = 20;
