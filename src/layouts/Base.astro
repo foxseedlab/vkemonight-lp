@@ -1,9 +1,11 @@
 ---
 import Footer from '@/components/Footer.astro';
 import SplashScreen from '@/components/SplashScreen.astro';
+import StructuredData from '@/components/StructuredData.astro';
 
 import Menu from '@/components/Menu';
 import type { Assets } from '@/libs/stores/assets';
+import type { Person } from '@/libs/stores/people';
 import { SEO } from 'astro-seo';
 import Font from './Font.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
@@ -15,6 +17,7 @@ type Props = {
   noindex?: boolean;
   nofollow?: boolean;
   assets: Assets;
+  performers: Person[];
 };
 
 const {
@@ -24,6 +27,7 @@ const {
   noindex = false,
   nofollow = false,
   assets,
+  performers,
 } = Astro.props;
 ---
 
@@ -65,6 +69,7 @@ const {
     <meta name="theme-color" content="#1E1E1E" />
     <Font />
     <GoogleAnalytics />
+    <StructuredData ogp={assets.ogp} performers={performers} />
   </head>
 
 	<body>
