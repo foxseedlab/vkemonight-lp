@@ -111,3 +111,16 @@ export async function fetchStaffsWithoutOrganizer(): Promise<Person[]> {
 
   return res.contents;
 }
+
+export async function fetchPerformers(): Promise<Person[]> {
+  const client = createCMSClient();
+
+  const res = await client.getList<Person>({
+    endpoint: 'people',
+    queries: {
+      filters: 'is_performer[equals]true',
+    },
+  });
+
+  return res.contents;
+}
