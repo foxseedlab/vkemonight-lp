@@ -1,4 +1,5 @@
 import { RightAngledIsoscelesTriangleCorner } from '@/libs/Corner';
+import sendGAEvent from '../analytics/google';
 
 type Props = {
   label: string;
@@ -51,10 +52,19 @@ export function PrimaryButtonWithEvent({
   className?: string;
   disabled?: boolean;
 }) {
+  const handleClick = () => {
+    onClick();
+    sendGAEvent('button_click', {
+      category: 'engagement',
+      button_label: label,
+      value: 1,
+    });
+  };
+
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
       className={`
         inline-block relative px-12 py-2 text-2xl text-primary text-center tracking-widest font-medium

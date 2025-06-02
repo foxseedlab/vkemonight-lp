@@ -1,3 +1,4 @@
+import sendGAEvent from './analytics/google';
 import type { Assets } from './stores/assets';
 import type { SocialLink, SocialLinkType } from './stores/people';
 import { randomString } from './utils/random';
@@ -34,6 +35,16 @@ export default function Social({ socials, assets, className = '' }: Props) {
     ['homepage', { url: assets.social_logos.homepage.url, height: 'h-[28px]' }],
   ]);
 
+  const handleClick = (social: SocialLink) => {
+    sendGAEvent('social_click', {
+      category: 'engagement',
+      label: 'social_click',
+      value: 1,
+      social: social.type[0],
+      destination_url: social.url,
+    });
+  };
+
   return (
     <div className={`w-full flex gap-3 ${className}`}>
       {socials.map((social) => (
@@ -41,6 +52,7 @@ export default function Social({ socials, assets, className = '' }: Props) {
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => handleClick(social)}
           key={randomString(10)}
         >
           <div className="h-full flex flex-col items-center justify-center">

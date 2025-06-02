@@ -1,3 +1,4 @@
+import sendGAEvent from '@/libs/analytics/google';
 import type { Assets } from '@/libs/stores/assets';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -59,6 +60,17 @@ export default function Menu({ assets }: MenuProps) {
 
     setActiveSection(currentActiveSection);
   }, [y]);
+
+  useEffect(() => {
+    if (activeSection === '') {
+      return;
+    }
+
+    sendGAEvent('section_view', {
+      category: 'navigation',
+      section_name: activeSection,
+    });
+  }, [activeSection]);
 
   const isTimeScheduleActive = activeSection === 'timeschedule';
   const textColorClass = isTimeScheduleActive
