@@ -20,7 +20,7 @@ type Props = {
 
 export default function Schedule({ djSchedules }: Props) {
   return (
-    <ul className="mt-4 w-full tracking-wide flex flex-col gap-4">
+    <ul className="mt-4 w-full half-container-max-width tracking-wide flex flex-col gap-4">
       <NormalSchedule startAtStr="19:45" title="開場" />
       <DJSchedule startAtStr="20:00" title="DJ" djSchedules={djSchedules} />
       <NormalSchedule startAtStr="04:00" title="記念撮影" />
