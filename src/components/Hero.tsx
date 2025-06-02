@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
-import { recommendFeaturedSrc, recommendLogoSrc } from '@/libs/imgix/image';
+import { recommendFeaturedSrc } from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -13,7 +13,6 @@ type Props = {
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
   const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
-  const [logoLoaded, setLogoLoaded] = useState(false);
 
   const logoVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -56,16 +55,15 @@ export default function Hero({ assets }: Props) {
           className="w-3/4 md:w-2/3 xl:w-1/2"
           variants={logoVariants}
           initial="hidden"
-          animate={logoLoaded ? 'visible' : 'hidden'}
+          animate="visible"
         >
           <img
-            src={recommendLogoSrc(assets.logos.white.url)}
+            src={assets.logos.white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
             draggable="false"
             width="512"
             height="auto"
-            onLoad={() => setLogoLoaded(true)}
           />
         </motion.h1>
 
