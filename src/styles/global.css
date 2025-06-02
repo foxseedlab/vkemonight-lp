@@ -156,3 +156,11 @@ body::before {
     transform: scale(1, 0);
   }
 }
+
+.container-max-width {
+  @apply max-w-[1600px];
+}
+
+.half-container-max-width {
+  @apply max-w-[800px];
+}

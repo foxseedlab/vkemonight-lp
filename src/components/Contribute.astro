@@ -28,8 +28,8 @@ const honorific = '様';
       <FeaturedImage image={featuredImage} />
     </div>
 
-    <div class="mt-20 md:mt-10 w-full md:w-1/2">
-      <SectionBody client:load>
+    <div class="mt-20 md:mt-10 w-full md:w-1/2 flex flex-col items-center">
+      <SectionBody className="half-container-max-width" client:load>
         <Header2 title="ご支援のお願い" className="mb-10" />
 
         <Paragraph className="mb-8 w-full">
