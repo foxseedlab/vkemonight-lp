@@ -70,7 +70,7 @@ export default function Hero({ assets }: Props) {
         </motion.h1>
 
         <TextStaggeredFade
-          text="バーチャルからお送りする夜のDJイベント | VRChat"
+          text="バーチャル ケモノ オールナイト クラブイベント | VRChat"
           className="mt-4 md:mt-8 text-sm md:text-2xl font-bold tracking-widest"
           initialDelay={1.5}
         />
