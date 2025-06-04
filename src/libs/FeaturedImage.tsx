@@ -34,7 +34,7 @@ export default function FeaturedImage({ image, right }: FeaturedImageProps) {
           }
           alt="縁エフェクト"
           className="w-full select-none pointer-events-none"
-          draggable="false"
+          draggable={false}
         />
       </div>
     </figure>
@@ -88,7 +88,7 @@ export function FeaturedImageSlide({ images, right }: FeaturedImageSlideProps) {
           }
           alt="縁エフェクト"
           className="w-full select-none pointer-events-none"
-          draggable="false"
+          draggable={false}
         />
       </div>
     </figure>
