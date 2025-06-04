@@ -41,12 +41,12 @@ const {
         site: xSite,
         title,
         description,
-        image: assets.ogp.url,
+        image: `${assets.ogp.url}?timestamp=20250604`,
         imageAlt: 'バーチャルケモナイト',
         card: 'summary_large_image',
       }}
       openGraph={{
-        basic: { title, type: 'website', image: assets.ogp.url },
+        basic: { title, type: 'website', image: `${assets.ogp.url}?timestamp=20250604` },
       }}
       noindex={noindex}
       nofollow={nofollow}
