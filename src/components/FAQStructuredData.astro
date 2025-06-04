@@ -1,0 +1,93 @@
+---
+import { Schema } from 'astro-seo-schema';
+---
+
+<!-- FAQPage構造化データ -->
+<Schema
+  item={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'バーチャルケモナイトとは何ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'バーチャルケモナイトは、VRChatで開催されるオールナイトのDJイベントです。バーチャル空間で最高の音楽体験をお届けする無料のイベントです。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '参加費はかかりますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '参加費は無料です。当イベントは非営利のイベントで、どなたでも無料でご参加いただけます。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'VRChatが初めてでも参加できますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、初めての方でも大歓迎です！「VRChatって初めてなんだけど…」「DJイベントってどんな感じ？」そんな心配はご無用です。私たちがノリの良い選曲とパフォーマンスで、アツい一夜をお届けします。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'PCがなくても参加できますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、PCがなくても参加できます。Meta Quest単体やスマホ(Android)からでも、この熱気あふれる空間に参加できます。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '参加するにはどうすればいいですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '当イベントに参加するには、VRChatで「Kemo in the dark」のグループに参加する必要があります。詳しい参加方法は当サイトの参加方法セクションをご確認ください。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'イベントの開催日時を教えてください',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '2025年7月12日（土）20:00から翌日4:00まで開催予定です。オールナイトのイベントとなっております。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'どのような音楽ジャンルが楽しめますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '様々なジャンルのDJが出演予定です。詳しいタイムスケジュールと各DJのジャンルは、当サイトのタイムスケジュールセクションでご確認いただけます。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'イベント会場での楽しみ方を教えてください',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '会場では、リズムに乗って踊ったり、友達と盛り上がったり、音楽に身を委ねたり…楽しみ方はあなた次第です。難しいルールはないので、気軽に遊びに来てください！',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'お問い合わせ方法を教えてください',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '公式XのDMにてお問い合わせください。内容を確認し、担当者より返信いたします。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'イベントを支援することはできますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、Ko-fiを通じてイベントをご支援いただけます。いただいたご支援は、イベントの企画運営に大切に使わせていただきます。支援してくださった方には特典もご用意しております。',
+        },
+      },
+    ],
+  }}
+/>

@@ -58,7 +58,7 @@ export function BeveledRectangleFigure({
         style={{
           maskImage: `url("data:image/svg+xml,${createMaskImageTag(size, cornerSize)}")`,
         }}
-        draggable="false"
+        draggable={false}
       />
 
       <BeveledRectangleBorder

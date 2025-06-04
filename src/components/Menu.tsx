@@ -1,4 +1,4 @@
-import { recommendLogoSrc } from '@/libs/imgix/image';
+import sendGAEvent from '@/libs/analytics/google';
 import type { Assets } from '@/libs/stores/assets';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -60,6 +60,17 @@ export default function Menu({ assets }: MenuProps) {
 
     setActiveSection(currentActiveSection);
   }, [y]);
+
+  useEffect(() => {
+    if (activeSection === '') {
+      return;
+    }
+
+    sendGAEvent('section_view', {
+      category: 'navigation',
+      section_name: activeSection,
+    });
+  }, [activeSection]);
 
   const isTimeScheduleActive = activeSection === 'timeschedule';
   const textColorClass = isTimeScheduleActive
@@ -123,9 +134,10 @@ function DesktopMenu({
                   opacity: activeSection !== '' ? 1 : 0,
                 }}
                 transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
-                src={recommendLogoSrc(assets.logos.black.url)}
+                src={assets.logos.black.url}
                 alt="バーチャルケモナイト ロゴ"
-                className="h-full py-2 object-cover object-left"
+                className="h-full py-2 object-cover object-left select-none pointer-events-none"
+                draggable={false}
               />
             </a>
           </motion.li>
@@ -257,9 +269,10 @@ function MobileMenu({
                       }
                     >
                       <img
-                        src={recommendLogoSrc(assets.logos.black.url)}
+                        src={assets.logos.black.url}
                         alt="バーチャルケモナイト ロゴ"
-                        className="w-full"
+                        className="w-full select-none pointer-events-none"
+                        draggable={false}
                       />
                     </a>
                   </li>

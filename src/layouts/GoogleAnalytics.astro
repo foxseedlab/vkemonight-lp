@@ -9,6 +9,18 @@ const gaScriptContent = `
   }
   gtag("js", new Date());
   gtag("config", "${measurementId}");
+
+  window.sendGAEvent = function(eventName, parameters = {}) {
+    gtag('event', eventName, parameters);
+  };
+
+  window.sendGAEvent('page_view_enhanced', {
+    category: 'navigation',
+    label: 'landing_page',
+    user_agent: navigator.userAgent,
+    screen_resolution: screen.width + 'x' + screen.height,
+    viewport_size: window.innerWidth + 'x' + window.innerHeight
+  });
 `;
 ---
 

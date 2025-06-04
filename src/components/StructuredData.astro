@@ -1,0 +1,75 @@
+---
+import type { Image } from '@/libs/stores/init';
+import type { Person } from '@/libs/stores/people';
+import { Schema } from 'astro-seo-schema';
+
+type Props = {
+  ogp: Image;
+  performers: Person[];
+};
+
+const { ogp, performers } = Astro.props;
+---
+
+<!-- WebSite構造化データ -->
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "バーチャルケモナイト",
+    "alternateName": ["ばちゃけも", "バチャケモ", "Vケモナイト"],
+    "url": `${import.meta.env.PUBLIC_SITE_URL}/`,
+    description: 'バーチャルからお送りする夜のDJイベント',
+    inLanguage: 'ja',
+    publisher: {
+      '@type': 'Organization',
+      name: 'KEMO IN THE DARK',
+      url: import.meta.env.PUBLIC_X_URL,
+    },
+  }}
+/>
+
+<!-- Event構造化データ -->
+<Schema
+  item={{
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: 'バーチャルケモナイト',
+    description:
+      'バーチャルケモナイトは、VRChatで開催されるオールナイトのDJイベントです。最高のビートと、みんなが楽しめるフレンドリーな空間を用意してお待ちしています。 一緒に忘れられない夜を作りましょう！',
+    startDate: '2025-07-12T20:00:00+09:00',
+    endDate: '2025-07-13T04:00:00+09:00',
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    location: {
+      '@type': 'VirtualLocation',
+      name: 'VRChat',
+      description: 'VRChatバーチャル空間内',
+      url: import.meta.env.PUBLIC_VRCHAT_GROUP_URL,
+    },
+    image: ogp.url,
+    organizer: {
+      '@type': 'Organization',
+      name: 'KEMO IN THE DARK',
+      url: import.meta.env.PUBLIC_X_URL,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'JPY',
+      validFrom: '2025-07-12T19:45:00+09:00',
+      availability: 'https://schema.org/InStock',
+      url: import.meta.env.PUBLIC_VRCHAT_GROUP_URL,
+      description: '参加費無料。VRChatグループへの参加が必要です。',
+    },
+    performer: performers.map((performer) => ({
+      '@type': 'Person',
+      name: performer.name,
+      image: performer.avatar.url,
+      url: performer.social_links.find((link) => link.type[0] === 'X')?.url ?? undefined,
+    })),
+    url: `${import.meta.env.PUBLIC_SITE_URL}/`,
+    isAccessibleForFree: true,
+    inLanguage: 'ja',
+  }}
+/>

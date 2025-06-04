@@ -1,7 +1,7 @@
 {
   "name": "vkemonight-lp",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -17,6 +17,7 @@
     "@types/react-dom": "^19.1.2",
     "astro": "^5.7.13",
     "astro-seo": "^0.8.4",
+    "astro-seo-schema": "^5.0.0",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.9.1",
     "microcms-js-sdk": "^3.2.0",

@@ -15,10 +15,11 @@ type Props = {
 const { specialGuests, guests, assets } = Astro.props;
 ---
 
-<section class="mt-96 md:mt-72" id="guests">
+<section class="mt-96 md:mt-72 flex flex-col items-center" id="guests">
   <Header1 title="GUESTS" titleJa="ゲスト" className="mb-16" right client:load />
 
-  <SpecialGuestIntroductions guests={specialGuests} assets={assets} client:load />
-
-  <GuestIntroductions guests={guests} assets={assets} client:load />
+  <div class="container-max-width">
+    <SpecialGuestIntroductions guests={specialGuests} assets={assets} client:load />
+    <GuestIntroductions guests={guests} assets={assets} client:load />
+  </div>
 </section>

@@ -9,7 +9,8 @@ export type Assets = {
   ogp: Image;
   featured_images: {
     fieldId: string;
-    hero: Image;
+    hero_video_url: string;
+    hero_video_thumbnail: Image;
     about: Image[];
     timeschedule: Image;
     join_ticket: Image;

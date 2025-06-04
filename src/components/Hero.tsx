@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { TextStaggeredFade } from '@/libs/animations/TextStaggerdFace';
-import {
-  recommendFeaturedSrc,
-  recommendLogoSrc,
-  recommendPlaceholderSrc,
-} from '@/libs/imgix/image';
+import { recommendFeaturedSrc } from '@/libs/imgix/image';
 import type { Assets } from '@/libs/stores/assets';
 
 type Props = {
@@ -16,14 +12,7 @@ type Props = {
 
 export default function Hero({ assets }: Props) {
   const { width, height } = useWindowSize();
-  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
-  const [logoLoaded, setLogoLoaded] = useState(false);
-  const [placeholder, setPlaceholder] = useState<string | null>(null);
-
-  // ページロード時にプレースホルダーを設定
-  useEffect(() => {
-    setPlaceholder(recommendPlaceholderSrc(assets.featured_images.hero.url));
-  }, [assets.featured_images.hero.url]);
+  const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
 
   const logoVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -66,21 +55,20 @@ export default function Hero({ assets }: Props) {
           className="w-3/4 md:w-2/3 xl:w-1/2"
           variants={logoVariants}
           initial="hidden"
-          animate={logoLoaded ? 'visible' : 'hidden'}
+          animate="visible"
         >
           <img
-            src={recommendLogoSrc(assets.logos.white.url)}
+            src={assets.logos.white.url}
             alt="バーチャルケモナイト ロゴ"
             className="w-full select-none pointer-events-none"
-            draggable="false"
+            draggable={false}
             width="512"
             height="auto"
-            onLoad={() => setLogoLoaded(true)}
           />
         </motion.h1>
 
         <TextStaggeredFade
-          text="バーチャルからお送りする夜のDJイベント | VRChat"
+          text="バーチャル ケモノ オールナイト クラブイベント | VRChat"
           className="mt-4 md:mt-8 text-sm md:text-2xl font-bold tracking-widest"
           initialDelay={1.5}
         />
@@ -114,24 +102,30 @@ export default function Hero({ assets }: Props) {
       </div>
 
       <figure className="w-full h-full">
-        {/* プレースホルダーイメージ */}
-        {placeholder && !heroImageLoaded && (
-          <img
-            src={placeholder}
-            alt="ヒーロー（ロード中）"
-            className="w-full h-full object-cover brightness-35 contrast-100 blur-[1rem] absolute inset-0"
+        {!heroVideoLoaded && (
+          <div
+            className="w-full h-full absolute inset-0 bg-gray-900 brightness-35 contrast-100 flex items-center justify-center"
             style={{ transition: 'opacity 0.3s ease-in-out' }}
+            role="img"
+            aria-hidden="true"
           />
         )}
-        <img
-          src={recommendFeaturedSrc(assets.featured_images.hero.url)}
-          alt="ヒーロー"
-          className={`w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem] ${!heroImageLoaded ? 'opacity-0' : 'opacity-100'}`}
-          style={{ transition: 'opacity 0.3s ease-in-out' }}
-          onLoad={() => setHeroImageLoaded(true)}
-          width="1080"
-          height="auto"
-          fetchPriority="high"
+        <video
+          src={assets.featured_images.hero_video_url}
+          className={`w-full h-full object-cover brightness-35 contrast-100 blur-[0.1rem] absolute inset-0 transition-opacity duration-300 ${
+            heroVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoadedData={() => setHeroVideoLoaded(true)}
+          width="1920"
+          height="1080"
+          muted
+          autoPlay
+          loop
+          playsInline
+          aria-label="ハイライト動画"
+          poster={recommendFeaturedSrc(
+            assets.featured_images.hero_video_thumbnail.url,
+          )}
         />
       </figure>
 
@@ -161,7 +155,7 @@ function createMaskImageTag(width: number, height: number): string {
 
 function ScrollDownAnimation() {
   return (
-    <div className="absolute bottom-72 right-18 z-30">
+    <div className="absolute bottom-72 right-14 md:right-18 z-30">
       <div className="scroll-down flex flex-col items-center relative pt-[5.5rem]">
         <div className="mt-3 arrow-down block w-[0.7rem]" />
         <div className="text-white text-sm font-medium tracking-[0.1em] origin-center rotate-90 whitespace-nowrap absolute -right-20 top-12">
