@@ -136,7 +136,8 @@ function DesktopMenu({
                 transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
                 src={assets.logos.black.url}
                 alt="バーチャルケモナイト ロゴ"
-                className="h-full py-2 object-cover object-left"
+                className="h-full py-2 object-cover object-left select-none pointer-events-none"
+                draggable={false}
               />
             </a>
           </motion.li>
@@ -270,7 +271,8 @@ function MobileMenu({
                       <img
                         src={assets.logos.black.url}
                         alt="バーチャルケモナイト ロゴ"
-                        className="w-full"
+                        className="w-full select-none pointer-events-none"
+                        draggable={false}
                       />
                     </a>
                   </li>
